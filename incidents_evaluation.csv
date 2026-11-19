@@ -1,0 +1,504 @@
+incident_id,title,severity,status,risk_score,timestamp,summary_chars,recommendation_chars
+1,Incident: Nmap Port Scan Detected from 192.168.242.39,high,resolved,80.0,2026-10-09 13:04:08,637,1089
+2,Incident: Nmap Port Scan Detected from 192.168.234.128,high,resolved,80.0,2026-10-09 13:13:34,769,1417
+3,Incident: Nmap Port Scan Detected from 192.168.234.128,high,resolved,80.0,2026-10-09 13:20:50,921,1392
+4,Incident: Nmap Port Scan Detected from 103.251.209.240,high,investigating,80.0,2026-10-09 13:37:46,976,2113
+5,Incident: Nmap Port Scan Detected from 192.168.0.111,high,resolved,80.0,2026-10-09 13:41:54,860,1231
+6,Incident: Nmap Port Scan Detected from 172.217.114.4,high,open,80.0,2026-10-09 13:42:49,0,0
+7,Incident: Nmap Port Scan Detected from 192.168.0.111,high,resolved,80.0,2026-10-09 13:57:48,764,1291
+8,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:11,0,0
+9,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:13,0,0
+10,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:14,0,0
+11,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:16,0,0
+12,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:17,0,0
+13,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:19,0,0
+14,Incident: Nmap Port Scan Detected from 192.168.0.50,high,resolved,80.0,2026-10-09 14:02:20,689,1410
+15,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:22,0,0
+16,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:23,0,0
+17,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:24,0,0
+18,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:26,0,0
+19,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:27,0,0
+20,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:29,0,0
+21,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:30,0,0
+22,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:32,0,0
+23,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:33,0,0
+24,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:35,0,0
+25,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:36,0,0
+26,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:38,0,0
+27,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:39,0,0
+28,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:41,0,0
+29,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:42,0,0
+30,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:44,0,0
+31,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:45,0,0
+32,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:47,0,0
+33,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:48,0,0
+34,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:50,0,0
+35,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:51,0,0
+36,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:53,0,0
+37,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:54,0,0
+38,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:56,0,0
+39,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:57,0,0
+40,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:02:58,0,0
+41,Incident: Nmap Port Scan Detected from 192.168.0.1,high,investigating,80.0,2026-10-09 14:04:56,127,127
+42,Incident: Nmap Port Scan Detected from 192.168.0.1,high,open,80.0,2026-10-09 14:18:44,0,0
+43,Incident: Nmap Port Scan Detected from 192.168.0.1,high,open,80.0,2026-10-09 14:24:46,0,0
+44,Incident: Nmap Port Scan Detected from 192.168.0.1,high,open,80.0,2026-10-09 14:33:46,0,0
+45,Incident: Nmap Port Scan Detected from 192.168.0.1,high,investigating,80.0,2026-10-09 14:38:51,654,1136
+46,Incident: Nmap Port Scan Detected from 192.168.0.1,high,open,80.0,2026-10-09 14:54:56,0,0
+47,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:12,0,0
+48,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:13,0,0
+49,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:15,0,0
+50,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:16,0,0
+51,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:17,0,0
+52,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:20,0,0
+53,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:27,0,0
+54,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:50,0,0
+55,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:52,0,0
+56,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:53,0,0
+57,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:54,0,0
+58,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:56,0,0
+59,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:57,0,0
+60,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:58:59,0,0
+61,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:00,0,0
+62,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:01,0,0
+63,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:03,0,0
+64,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:04,0,0
+65,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:05,0,0
+66,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:07,0,0
+67,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:08,0,0
+68,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:10,0,0
+69,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:12,0,0
+70,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:13,0,0
+71,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:14,0,0
+72,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:16,0,0
+73,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:17,0,0
+74,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:19,0,0
+75,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:20,0,0
+76,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:22,0,0
+77,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:23,0,0
+78,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:24,0,0
+79,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:26,0,0
+80,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:27,0,0
+81,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:29,0,0
+82,Incident: Nmap Port Scan Detected from 192.168.0.50,high,open,80.0,2026-10-09 14:59:30,0,0
+83,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:48,0,0
+84,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:49,0,0
+85,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:50,0,0
+86,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:52,0,0
+87,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:53,0,0
+88,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:54,0,0
+89,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:56,0,0
+90,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:57,0,0
+91,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:54:58,0,0
+92,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:00,0,0
+93,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:01,0,0
+94,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:02,0,0
+95,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:04,0,0
+96,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:05,0,0
+97,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:07,0,0
+98,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:08,0,0
+99,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:09,0,0
+100,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:11,0,0
+101,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:12,0,0
+102,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:13,0,0
+103,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:15,0,0
+104,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:16,0,0
+105,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:17,0,0
+106,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:19,0,0
+107,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:20,0,0
+108,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:21,0,0
+109,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 01:55:23,0,0
+110,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:12:43,0,0
+111,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:12:44,0,0
+112,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:12:45,0,0
+113,Incident: Nmap Port Scan Detected from 192.168.0.222,high,resolved,80.0,2026-10-10 02:12:47,773,2005
+114,Incident: Nmap Port Scan Detected from 192.168.0.222,high,resolved,80.0,2026-10-10 02:12:48,775,1889
+115,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:15:58,0,0
+116,Incident: Nmap Port Scan Detected from 192.168.0.222,high,resolved,80.0,2026-10-10 02:15:59,788,1397
+117,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:16:25,0,0
+118,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:16:26,0,0
+119,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:16:27,0,0
+120,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:16:29,0,0
+121,Incident: Nmap Port Scan Detected from 192.168.0.222,high,open,80.0,2026-10-10 02:16:30,0,0
+122,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:18,0,0
+123,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:20,0,0
+124,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:21,0,0
+125,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,resolved,95.0,2026-10-10 02:17:22,682,1246
+126,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:24,0,0
+127,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:41,0,0
+128,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:42,0,0
+129,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:44,0,0
+130,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:45,0,0
+131,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:17:46,0,0
+132,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:20:51,0,0
+133,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:20:52,0,0
+134,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:20:53,0,0
+135,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,open,95.0,2026-10-10 02:20:55,0,0
+136,Incident: DDoS UDP Flood Detected from 192.168.0.222,critical,resolved,95.0,2026-10-10 02:20:56,851,2080
+137,Incident: DDoS UDP Flood Detected from 192.168.0.105,critical,open,95.0,2026-10-10 02:29:53,0,0
+138,Incident: DDoS UDP Flood Detected from 192.168.0.105,critical,open,95.0,2026-10-10 02:29:54,0,0
+139,Incident: DDoS UDP Flood Detected from 192.168.0.105,critical,open,95.0,2026-10-10 02:29:55,0,0
+140,Incident: DDoS UDP Flood Detected from 192.168.0.105,critical,open,95.0,2026-10-10 02:29:57,0,0
+141,Incident: DDoS UDP Flood Detected from 192.168.0.105,critical,open,95.0,2026-10-10 02:29:58,0,0
+142,Incident: DDoS UDP Flood Detected from 192.168.0.1,critical,resolved,95.0,2026-10-10 02:30:27,787,1331
+143,Incident: DDoS UDP Flood Detected from 192.168.0.107,critical,open,95.0,2026-10-10 02:32:41,0,0
+144,Incident: DDoS UDP Flood Detected from 192.168.0.99,critical,open,95.0,2026-10-10 02:35:16,0,0
+145,Incident: DDoS UDP Flood Detected from 192.168.0.99,critical,open,95.0,2026-10-10 02:35:18,0,0
+146,Incident: DDoS UDP Flood Detected from 192.168.0.99,critical,open,95.0,2026-10-10 02:35:19,0,0
+147,Incident: DDoS UDP Flood Detected from 192.168.0.99,critical,open,95.0,2026-10-10 02:35:20,0,0
+148,Incident: DDoS UDP Flood Detected from 192.168.0.99,critical,resolved,95.0,2026-10-10 02:35:22,578,1711
+149,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:17,0,0
+150,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:19,0,0
+151,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:20,0,0
+152,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:21,0,0
+153,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:23,0,0
+154,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:24,0,0
+155,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:25,0,0
+156,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:27,0,0
+157,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:28,0,0
+158,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:29,0,0
+159,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:31,0,0
+160,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:32,0,0
+161,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:34,0,0
+162,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:35,0,0
+163,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:36,0,0
+164,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:38,0,0
+165,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:39,0,0
+166,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:40,0,0
+167,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:42,0,0
+168,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:43,0,0
+169,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:45,0,0
+170,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:46,0,0
+171,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:47,0,0
+172,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:48,0,0
+173,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:50,0,0
+174,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:51,0,0
+175,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:52,0,0
+176,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:54,0,0
+177,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:55,0,0
+178,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:56,0,0
+179,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:58,0,0
+180,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:42:59,0,0
+181,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:00,0,0
+182,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:02,0,0
+183,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:03,0,0
+184,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:04,0,0
+185,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:06,0,0
+186,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:07,0,0
+187,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:08,0,0
+188,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:10,0,0
+189,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:11,0,0
+190,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:12,0,0
+191,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:14,0,0
+192,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:15,0,0
+193,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,open,95.0,2026-10-10 02:43:16,0,0
+194,Incident: DDoS UDP Flood Detected from 192.168.0.152,critical,resolved,95.0,2026-10-10 02:43:18,700,1414
+195,Incident: DDoS UDP Flood Detected from 192.168.0.107,critical,open,95.0,2026-10-10 02:45:26,0,0
+196,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:20,0,0
+197,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:22,0,0
+198,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:23,0,0
+199,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:24,0,0
+200,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:26,0,0
+201,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:27,0,0
+202,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:28,0,0
+203,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:30,0,0
+204,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:31,0,0
+205,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,investigating,95.0,2026-10-10 02:52:32,824,1355
+206,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:34,0,0
+207,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,open,95.0,2026-10-10 02:52:35,0,0
+208,Incident: DDoS UDP Flood Detected from 192.168.0.151,critical,resolved,95.0,2026-10-10 02:52:36,682,2112
+209,Incident: DDoS UDP Flood Detected from 192.168.0.107,critical,open,95.0,2026-10-10 02:54:25,0,0
+210,Incident: DDoS UDP Flood Detected from 192.168.0.106,critical,open,95.0,2026-10-10 03:27:28,0,0
+211,Incident: DDoS UDP Flood Detected from 192.168.0.106,critical,open,95.0,2026-10-10 03:27:28,0,0
+212,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.111,high,open,80.0,2026-10-13 10:14:44,0,0
+213,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.111,high,investigating,80.0,2026-10-13 10:15:38,718,1500
+214,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.123,high,open,80.0,2026-10-13 10:21:05,0,0
+215,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.123,high,open,80.0,2026-10-13 10:21:12,0,0
+216,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.123,high,open,80.0,2026-10-13 10:21:17,0,0
+217,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.1,high,open,80.0,2026-10-13 10:21:34,0,0
+218,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.1,high,open,80.0,2026-10-13 10:21:34,0,0
+219,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:22:59,0,0
+220,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:22:59,0,0
+221,Incident: DDoS Volumetric Flood Detected from 192.168.0.126,critical,open,95.0,2026-10-13 10:23:00,0,0
+222,Incident: DDoS Volumetric Flood Detected from 192.168.0.126,critical,open,95.0,2026-10-13 10:23:00,0,0
+223,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:00,0,0
+224,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:02,0,0
+225,Incident: DDoS Volumetric Flood Detected from 192.168.0.126,critical,open,95.0,2026-10-13 10:23:02,0,0
+226,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:03,0,0
+227,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:03,0,0
+228,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:03,0,0
+229,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:04,0,0
+230,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:04,0,0
+231,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:04,0,0
+232,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:05,0,0
+233,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:05,0,0
+234,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:05,0,0
+235,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:06,0,0
+236,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:06,0,0
+237,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:07,0,0
+238,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:07,0,0
+239,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:07,0,0
+240,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:08,0,0
+241,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:08,0,0
+242,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:09,0,0
+243,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:09,0,0
+244,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:09,0,0
+245,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:10,0,0
+246,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:10,0,0
+247,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:11,0,0
+248,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:11,0,0
+249,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:12,0,0
+250,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:12,0,0
+251,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:13,0,0
+252,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:13,0,0
+253,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:13,0,0
+254,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:14,0,0
+255,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:14,0,0
+256,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:15,0,0
+257,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:15,0,0
+258,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:15,0,0
+259,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:16,0,0
+260,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:17,0,0
+261,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:17,0,0
+262,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:18,0,0
+263,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:18,0,0
+264,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:19,0,0
+265,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:19,0,0
+266,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:20,0,0
+267,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:20,0,0
+268,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:21,0,0
+269,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:21,0,0
+270,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:21,0,0
+271,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:22,0,0
+272,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:23,0,0
+273,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:23,0,0
+274,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:24,0,0
+275,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:24,0,0
+276,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:25,0,0
+277,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:25,0,0
+278,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:26,0,0
+279,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:27,0,0
+280,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:27,0,0
+281,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:28,0,0
+282,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:28,0,0
+283,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:29,0,0
+284,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:29,0,0
+285,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:30,0,0
+286,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:31,0,0
+287,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:31,0,0
+288,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:31,0,0
+289,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:32,0,0
+290,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:32,0,0
+291,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:33,0,0
+292,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:33,0,0
+293,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:34,0,0
+294,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:34,0,0
+295,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:35,0,0
+296,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:36,0,0
+297,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:36,0,0
+298,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:37,0,0
+299,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:37,0,0
+300,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:38,0,0
+301,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:38,0,0
+302,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:39,0,0
+303,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:39,0,0
+304,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:40,0,0
+305,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:40,0,0
+306,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:41,0,0
+307,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:41,0,0
+308,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:42,0,0
+309,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:43,0,0
+310,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:43,0,0
+311,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:44,0,0
+312,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:44,0,0
+313,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:45,0,0
+314,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:45,0,0
+315,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:46,0,0
+316,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:46,0,0
+317,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:47,0,0
+318,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:48,0,0
+319,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:48,0,0
+320,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.126,high,open,80.0,2026-10-13 10:23:49,0,0
+321,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.123,high,open,80.0,2026-10-13 10:24:46,0,0
+322,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 06:52:31,0,0
+323,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-14 06:52:31,0,0
+324,Incident: Network Port Scan / Reconnaissance Detected from 2401:4900:5030:b152:9021:3947:2c59:982c,high,open,80.0,2026-10-14 06:52:32,0,0
+325,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 06:52:33,0,0
+326,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 06:52:34,0,0
+327,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 06:52:41,0,0
+328,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 06:52:46,0,0
+329,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 06:52:48,0,0
+330,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 06:52:51,0,0
+331,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 07:00:51,0,0
+332,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 07:06:54,0,0
+333,Incident: DDoS Volumetric Flood Detected from 169.254.25.208,critical,open,95.0,2026-10-14 13:36:06,0,0
+334,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 13:36:07,0,0
+335,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-14 13:36:08,0,0
+336,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 13:36:10,0,0
+337,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 13:46:53,0,0
+338,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-14 13:46:53,0,0
+339,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 13:48:04,0,0
+340,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-14 13:48:04,0,0
+341,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 13:50:55,0,0
+342,Incident: DDoS Volumetric Flood Detected from 10.93.202.78,critical,open,95.0,2026-10-14 16:25:30,0,0
+343,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,investigating,80.0,2026-10-14 16:25:32,726,2085
+344,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78,high,open,80.0,2026-10-14 16:25:37,0,0
+345,Incident: Network Port Scan / Reconnaissance Detected from ,high,open,80.0,2026-10-15 10:44:50,0,0
+346,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,investigating,95.0,2026-10-15 10:45:41,841,1726
+347,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,investigating,95.0,2026-10-15 10:47:49,804,1555
+348,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.128,high,open,80.0,2026-10-15 10:48:59,0,0
+349,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.128,high,open,80.0,2026-10-15 10:50:14,0,0
+350,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:51:42,0,0
+351,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:52:40,0,0
+352,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:52:51,0,0
+353,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:54:02,0,0
+354,Incident: Network Port Scan / Reconnaissance Detected from 192.168.234.128,high,open,80.0,2026-10-15 10:54:13,0,0
+355,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:54:14,0,0
+356,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:55:02,0,0
+357,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:55:06,0,0
+358,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:55:22,0,0
+359,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:56:40,0,0
+360,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-15 10:57:21,0,0
+361,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 10:58:22,0,0
+362,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-15 10:59:18,0,0
+363,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-15 10:59:35,0,0
+364,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-15 10:59:42,0,0
+365,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,investigating,95.0,2026-10-15 11:01:45,818,1351
+366,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-15 11:02:14,0,0
+367,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.156,high,open,80.0,2026-10-15 11:02:32,0,0
+368,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:02:33,0,0
+369,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:03:55,0,0
+370,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:05:40,0,0
+371,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,investigating,95.0,2026-10-15 11:07:16,650,1580
+372,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:07:39,0,0
+373,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:07:44,0,0
+374,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:08:29,0,0
+375,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:09:49,0,0
+376,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:09:58,0,0
+377,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:13:22,0,0
+378,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.223,high,open,80.0,2026-10-15 11:13:46,0,0
+379,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.223,high,open,80.0,2026-10-15 11:13:51,0,0
+380,Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.223,high,open,80.0,2026-10-15 11:13:56,0,0
+381,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-15 11:15:41,0,0
+382,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,investigating,80.0,2026-10-15 11:15:50,764,1572
+383,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,investigating,80.0,2026-10-15 11:15:57,818,1747
+384,Incident: DDoS Volumetric Flood Detected from 10.93.202.128,critical,open,95.0,2026-10-15 11:16:26,0,0
+385,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-24 01:52:00,0,0
+386,Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161,high,open,80.0,2026-10-24 01:52:07,0,0
+387,Incident: DDoS Volumetric Flood Detected from 10.60.147.20,critical,open,95.0,2026-10-24 01:52:51,0,0
+388,Incident: [Suricata] Suricata Ping Verification,medium,open,50.0,2026-11-16 13:36:51,0,0
+389,Incident: [Wazuh rule 100001] Real Wazuh SSH Brute Force Detection,high,open,66.7,2026-11-16 13:37:01,0,0
+390,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:39:57,0,0
+391,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:39:58,0,0
+392,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:39:58,0,0
+393,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:58,0,0
+394,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:58,0,0
+395,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:39:58,0,0
+396,Incident: [Suricata] ET DOS SYN Flood Detected,high,open,75.0,2026-11-16 13:39:58,0,0
+397,Incident: [Suricata] ET DOS SYN Flood Detected,high,open,75.0,2026-11-16 13:39:58,0,0
+398,Incident: [Suricata] ET DOS SYN Flood Detected,high,open,75.0,2026-11-16 13:39:59,0,0
+399,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:59,0,0
+400,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:59,0,0
+401,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:59,0,0
+402,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:59,0,0
+403,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:39:59,0,0
+404,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:39:59,0,0
+405,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:39:59,0,0
+406,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:39:59,0,0
+407,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:39:59,0,0
+408,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:00,0,0
+409,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:00,0,0
+410,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:00,0,0
+411,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:00,0,0
+412,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:00,0,0
+413,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:00,0,0
+414,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:00,0,0
+415,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:00,0,0
+416,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:00,0,0
+417,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:01,0,0
+418,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:01,0,0
+419,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:01,0,0
+420,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:01,0,0
+421,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:01,0,0
+422,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:01,0,0
+423,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:01,0,0
+424,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:01,0,0
+425,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:01,0,0
+426,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:01,0,0
+427,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:02,0,0
+428,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:02,0,0
+429,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:02,0,0
+430,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:02,0,0
+431,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:02,0,0
+432,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:02,0,0
+433,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:02,0,0
+434,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:02,0,0
+435,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:02,0,0
+436,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:02,0,0
+437,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:03,0,0
+438,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:03,0,0
+439,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:03,0,0
+440,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:03,0,0
+441,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:03,0,0
+442,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:03,0,0
+443,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:03,0,0
+444,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:03,0,0
+445,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:04,0,0
+446,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:04,0,0
+447,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:04,0,0
+448,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:04,0,0
+449,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:04,0,0
+450,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:04,0,0
+451,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:04,0,0
+452,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:04,0,0
+453,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:04,0,0
+454,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:04,0,0
+455,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:05,0,0
+456,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:05,0,0
+457,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:05,0,0
+458,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:05,0,0
+459,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:05,0,0
+460,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:05,0,0
+461,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:05,0,0
+462,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:06,0,0
+463,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:06,0,0
+464,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:06,0,0
+465,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:06,0,0
+466,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:06,0,0
+467,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:06,0,0
+468,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:06,0,0
+469,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:06,0,0
+470,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:06,0,0
+471,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:07,0,0
+472,Incident: [Suricata] ET SCAN Potential Host Discovery ICMP Echo,high,open,75.0,2026-11-16 13:40:07,0,0
+473,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:07,0,0
+474,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:07,0,0
+475,Incident: [Suricata] ET SCAN Nmap OS Detection Probe,high,open,75.0,2026-11-16 13:40:07,0,0
+476,Incident: [Suricata] ET SCAN Nmap Null Scan,high,open,75.0,2026-11-16 13:40:07,0,0
+477,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:07,0,0
+478,Incident: [Suricata] ET SCAN Nmap Xmas Scan,high,open,75.0,2026-11-16 13:40:08,0,0
+479,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:08,0,0
+480,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:11,0,0
+481,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:11,0,0
+482,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:11,0,0
+483,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:11,0,0
+484,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:11,0,0
+485,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:11,0,0
+486,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:12,0,0
+487,Incident: [Suricata] ET DOS SYN Flood Detected,high,open,75.0,2026-11-16 13:40:12,0,0
+488,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:12,0,0
+489,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:13,0,0
+490,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:14,0,0
+491,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:16,0,0
+492,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:16,0,0
+493,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:16,0,0
+494,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:16,0,0
+495,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:17,0,0
+496,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:18,0,0
+497,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:18,0,0
+498,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:18,0,0
+499,Incident: [Suricata] ET DOS UDP Flood Detected,high,investigating,75.0,2026-11-16 13:40:19,599,2007
+500,Incident: [Suricata] ET DOS UDP Flood Detected,high,open,75.0,2026-11-16 13:40:19,0,0
+501,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,open,75.0,2026-11-16 13:40:19,0,0
+502,Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan,high,resolved,75.0,2026-11-16 13:40:20,768,1763
+503,Incident: [Wazuh rule 5710] Suspicious Authentication Failure Spike,critical,investigating,80.0,2026-11-17 08:12:13,781,1517

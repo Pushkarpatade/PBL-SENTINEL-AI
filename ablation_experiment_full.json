@@ -1,0 +1,157 @@
+[
+  {
+    "test_case": "Nmap Port Scan (Internal Host)",
+    "id": "T1046-Internal",
+    "conditions": {
+      "C1 (Alert Only)": {
+        "latency_s": 1.24,
+        "summary_len": 871,
+        "output_sample": "This alert indicates that the internal host 192.168.0.111 is actively performing an Nmap SYN scan against common service ports, suggesting potential unauthorized reconnaissance or ..."
+      },
+      "C1+C2 (+History)": {
+        "latency_s": 1.19,
+        "summary_len": 726,
+        "output_sample": "The internal host 192.168.0.111 is actively conducting an Nmap SYN scan against critical service ports across three subnets, indicating a potential reconnaissance phase for lateral..."
+      },
+      "C1+C3 (+ThreatIntel)": {
+        "latency_s": 1.96,
+        "summary_len": 800,
+        "output_sample": "This alert indicates that an internal host (192.168.0.111) is performing an Nmap SYN scan against common service ports, suggesting potential unauthorized network reconnaissance or ..."
+      },
+      "C1+C4 (+RAG)": {
+        "latency_s": 1.35,
+        "summary_len": 714,
+        "output_sample": "Suricata rule 2100498 detected an Nmap SYN scan originating from internal IP 192.168.0.111, targeting critical services including SSH, HTTP, HTTPS, and RDP, which aligns with MITRE..."
+      },
+      "Full Ensemble (C1-C4)": {
+        "latency_s": 1.02,
+        "summary_len": 567,
+        "output_sample": "Suricata detected an internal Nmap SYN scan from 192.168.0.111 targeting critical services across three subnets, indicating potential unauthorized network reconnaissance. Immediate..."
+      }
+    }
+  },
+  {
+    "test_case": "UDP Volumetric Flood (DoS)",
+    "id": "T1498-UDP-Flood",
+    "conditions": {
+      "C1 (Alert Only)": {
+        "latency_s": 0.92,
+        "summary_len": 668,
+        "output_sample": "This alert indicates that the internal IP address 10.93.202.128 is generating an excessive volume of UDP traffic at a rate of 45,000 packets per second, which is characteristic of ..."
+      },
+      "C1+C2 (+History)": {
+        "latency_s": 0.9,
+        "summary_len": 620,
+        "output_sample": "Suricata has detected a new volumetric UDP DDoS attack originating from 10.93.202.128, which is currently consuming 850 Mbps of bandwidth at a rate of 45,000 packets per second. Th..."
+      },
+      "C1+C3 (+ThreatIntel)": {
+        "latency_s": 0.52,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C4 (+RAG)": {
+        "latency_s": 0.54,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "Full Ensemble (C1-C4)": {
+        "latency_s": 0.54,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      }
+    }
+  },
+  {
+    "test_case": "Windows Logon Brute Force",
+    "id": "T1110-Brute-Force",
+    "conditions": {
+      "C1 (Alert Only)": {
+        "latency_s": 0.51,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C2 (+History)": {
+        "latency_s": 0.66,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C3 (+ThreatIntel)": {
+        "latency_s": 0.52,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C4 (+RAG)": {
+        "latency_s": 0.52,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "Full Ensemble (C1-C4)": {
+        "latency_s": 0.91,
+        "summary_len": 362,
+        "output_sample": "The alert indicates an active brute-force attack from a known malicious IP targeting privileged accounts, evidenced by rapid consecutive login failures and threat intelligence flag..."
+      }
+    }
+  },
+  {
+    "test_case": "Web SQL Injection Attempt",
+    "id": "T1190-Web-Exploit",
+    "conditions": {
+      "C1 (Alert Only)": {
+        "latency_s": 0.85,
+        "summary_len": 751,
+        "output_sample": "This alert indicates a high-severity SQL injection attack where an external IP address is attempting to bypass authentication on the login API using a classic boolean-based payload..."
+      },
+      "C1+C2 (+History)": {
+        "latency_s": 0.59,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C3 (+ThreatIntel)": {
+        "latency_s": 2.62,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C4 (+RAG)": {
+        "latency_s": 1.91,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "Full Ensemble (C1-C4)": {
+        "latency_s": 0.74,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      }
+    }
+  },
+  {
+    "test_case": "Gateway Reflection Scan",
+    "id": "T1046-Gateway-Reflect",
+    "conditions": {
+      "C1 (Alert Only)": {
+        "latency_s": 0.83,
+        "summary_len": 675,
+        "output_sample": "This alert indicates that Suricata detected an ICMP Echo response originating from 192.168.0.1 that appears to be a reflection, suggesting potential host discovery activity or netw..."
+      },
+      "C1+C2 (+History)": {
+        "latency_s": 0.68,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C3 (+ThreatIntel)": {
+        "latency_s": 1.26,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "C1+C4 (+RAG)": {
+        "latency_s": 2.27,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      },
+      "Full Ensemble (C1-C4)": {
+        "latency_s": 0.86,
+        "summary_len": 115,
+        "output_sample": "AI analysis is temporarily unavailable. No AI conclusion was generated; review the linked sensor evidence manually...."
+      }
+    }
+  }
+]

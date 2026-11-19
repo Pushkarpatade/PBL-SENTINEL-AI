@@ -1,0 +1,1093 @@
+[
+  {
+    "incident_id": 1,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.242.39",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 13:04:08",
+    "summary": "A high-severity network scan was detected originating from internal IP address 192.168.242.39, triggering an alert for an Nmap port scan. Although the incident carries a high risk score of 80.0 and suggests significant reconnaissance activity against internal assets, external threat intelligence from VirusTotal and AbuseIPDB returned no malicious flags or historical data for this source. Consequently, there is currently no external confirmation that this IP belongs to a known malicious actor, indicating a possible internal misconfiguration, authorized penetration test, or compromised internal host requiring further investigation.",
+    "recommendation": "1. **Immediately isolate host 192.168.242.39** from the network segment by disabling its physical or virtual network adapter via remote management interfaces (e.g., IPMI/iDRAC, VMware vCenter, or cloud console) to prevent further reconnaissance or lateral movement while preserving the machine state for forensic analysis.\n\n2. **Capture and preserve forensic evidence** by taking a full memory dump and disk image of the isolated host, and extracting network flow logs (NetFlow/sFlow) and firewall/SIEM logs associated with this IP to identify the specific scanning tool, target ports, and any subsequent C2 or exfiltration activity before connecting it to a forensic analysis environment.\n\n3. **Audit and verify the legitimacy of the activity** by cross-referencing the scan timestamps and methods against authorized penetration test reports or internal change management logs, and simultaneously inspecting the host for unexpected processes, webshells, or anomalous user accounts to determine if the activity resulted from an internal misconfiguration, authorized testing, or compromise.",
+    "linked_alerts": [
+      {
+        "id": 1,
+        "title": "Nmap Port Scan Detected from 192.168.242.39",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 2,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.234.128",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 13:13:34",
+    "summary": "**Executive Summary**\n\nThis high-severity incident (Risk Score: 80.0) involves a detected Nmap port scan originating from internal IP address 192.168.234.128, suggesting active reconnaissance activity within the local network segment. While the aggressive scanning posture poses a significant risk for exposure of open services and potential lateral movement, external threat intelligence feeds from VirusTotal and AbuseIPDB currently show no malicious indicators or historical data for this source. Consequently, the absence of external IOCs suggests this behavior likely stems from an internal actor or a compromised host rather than a known external threat actor, necessitating immediate internal containment and forensics to determine the legitimate owner's intent.",
+    "recommendation": "1. **Isolate and preserve forensic state of 192.168.234.128**: Immediately quarantine the host on the local network segment using a firewall rule (e.g., `iptables -A INPUT -s 192.168.234.128 -j DROP` and `iptables -A OUTPUT -s 192.168.234.128 -j DROP`) while keeping it powered on, and capture a full memory dump and disk image to preserve Nmap toolchains, temporary scan results, and any persistent access mechanisms used by the internal actor.\n\n2. **Audit and restrict ICMP and reconnaissance traffic via network policy**: Implement strict ACLs at the gateway or core switch level to deny non-essential outbound and inbound TCP/UDP connection attempts from this subnet segment to all other subnets except explicitly whitelisted management or service IPs, and enable port-knocking or application-layer authentication (e.g., mutual TLS on internal services) to render raw port scans ineffective against critical internal endpoints.\n\n3. **Investigate the originating process and user context via log correlation**: Cross-reference Nmap scan timestamps with local system logs (`/var/log/auth.log`, `syslog`) and application logs on 192.168.234.128 to identify the specific process ID, executing user account, and session ID responsible for the scan, then immediately revoke any active sessions or credentials associated with that account if the user cannot be positively verified as authorized for reconnaissance tasks.",
+    "linked_alerts": [
+      {
+        "id": 2,
+        "title": "Nmap Port Scan Detected from 192.168.234.128",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 3,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.234.128",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 13:20:50",
+    "summary": "**Executive Summary: Incident #3**\n\nThe SOC detected a surge in high-severity Nmap port scan alerts originating from multiple sources, dominated by persistent external activity from 103.251.209.242 and 172.217.114.4/4, alongside occasional internal network addresses (192.168.234.x). These reconnaissance activities indicate active scanning to map network services and identify potential entry points, posing a significant risk to infrastructure asset exposure if successful. However, external threat intelligence from VirusTotal and AbuseIPDB returned no malicious flags or historical data for the identified IPs, suggesting these are likely opportunistic scaners or unclassified sources rather than confirmed part of a known malicious campaign. Recommended actions include blocking the top external offending IPs at the perimeter firewall and reviewing internal host permissions to rule out compromised internal assets.",
+    "recommendation": "1.  Implement immediate perimeter firewall rules to drop all inbound and outbound traffic to and from `103.251.209.242` and the `172.217.114.0/24` subnet (since `/4` is not a valid standard CIDR for a single typical threat actor range and likely represents a typo for a smaller block, assuming standard enterprise subnetting; if `/4` is literal, block `172.224.0.0/4` which includes a vast portion of private space, so verify and correct to the specific offending subnet). Configuring the firewall to log and drop these IPs prevents further reconnaissance and potential exploitation of identified open services.\n2.  Isolate and forensically examine internal hosts within the `192.168.234.0/24` range that generated Nmap scan alerts, specifically focusing on any host showing unusual outbound connections, new administrative user accounts, or unexpected nmap binaries in the filesystem, to determine if an internal compromise is using these hosts as a pivot point for lateral movement or external scanning.\n3.  Audit and tighten network access control lists (ACLs) and group policy objects (GPOs) for the `192.168.234.x` segment to explicitly deny unauthorized users from executing scanning tools (such as nmap, masscan, or hping3) and to restrict outbound traffic from internal workstations to arbitrary high ports, thereby reducing the attack surface for internal-to-external reconnaissance.",
+    "linked_alerts": [
+      {
+        "id": 3,
+        "title": "Nmap Port Scan Detected from 192.168.234.128",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 4,
+        "title": "Nmap Port Scan Detected from 192.168.234.1",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 5,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 6,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 7,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 8,
+        "title": "Nmap Port Scan Detected from 150.171.28.11",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 9,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 10,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 11,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 12,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 13,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 14,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 15,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 16,
+        "title": "Nmap Port Scan Detected from 23.212.254.49",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 17,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 18,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 19,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 20,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 21,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 22,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 23,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 24,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 25,
+        "title": "Nmap Port Scan Detected from 103.251.209.242",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 26,
+        "title": "Nmap Port Scan Detected from 142.251.153.119",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 27,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 28,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 29,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 30,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 31,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 32,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 33,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 34,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 35,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 36,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 37,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 38,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 39,
+        "title": "Nmap Port Scan Detected from 172.64.148.235",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 40,
+        "title": "Nmap Port Scan Detected from 150.171.109.132",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 41,
+        "title": "Nmap Port Scan Detected from 103.249.241.202",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 42,
+        "title": "Nmap Port Scan Detected from 103.249.241.202",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 43,
+        "title": "Nmap Port Scan Detected from 103.249.241.202",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 44,
+        "title": "Nmap Port Scan Detected from 192.168.234.128",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 4,
+    "title": "Incident: Nmap Port Scan Detected from 103.251.209.240",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 13:37:46",
+    "summary": "This incident involves a high-volume Nmap port scan campaign targeting internal infrastructure from both external sources (103.251.209.240) and internal endpoints (192.168.0.111), alongside activity from several Google-owned public IPs (172.217.x.x, 142.251.x.x). The high risk score of 80.0 indicates a significant reconnaissance effort, with the external IP 103.251.209.240 generating the majority of alerts, suggesting a coordinated probing activity. Although external threat intelligence from VirusTotal and AbuseIPDB currently shows no malicious reputation for these hosts, the combination of external scanning and internal IP activity raises concerns about potential insider threats or compromised internal assets. Immediate investigation is required to determine if the internal host 192.168.0.111 is maliciously active or if the traffic is a false positive from authorized security tools, while continuing to monitor the external IPs for further exploitation attempts.",
+    "recommendation": "1. **Isolate and Forensically Image Internal Host 192.168.0.111**: Immediately apply a strict allowlist rule on the network firewall or endpoint security agent to block all outbound traffic from `192.168.0.111` except for explicitly authorized administrative channels. Then, capture a full memory dump and disk image of the host before disconnecting it from the network to perform offline analysis for malware, unauthorized nmap installations, or signs of compromise, given that this internal source generated a portion of the high-volume scan campaigns.\n\n2. **Implement Rate-Limiting and Alerting for External IP 103.251.209.240 at the Perimeter Firewall**: Configure the perimeter firewall (or IDS/IPS) to apply temporary rate-limiting rules that drop or queue excessive connection attempts from `103.251.209.240` to internal servers, specifically limiting open port probes to a negligible threshold (e.g., <5 packets/sec) to thwart the reconnaissance effort without triggering immediate full-blacklisting that could mask subsequent exploitation attempts. Simultaneously, create a high-priority SIEM alert trigger for any new successful port opens or service banners retrieved from this specific IP to detect a transition from scanning to exploitation.\n\n3. **Verify and Whitelist Authorized Security Scan Sources, Then Disable Unprivileged Port Scanning Capabilities**: Immediately cross-reference the log entries for Google-owned IPs (172.217.x.x, 142.251.x.x) and any other flagged internal scan sources against the organization\u2019s authorized vulnerability management tool schedule. If these are confirmed as authorized scans, add their specific IP ranges and user-agent signatures to the SIEM suppression list to reduce noise. Critically, execute a system-wide audit to ensure that `nmap` or equivalent network scanning tools are not installed with root/administrator privileges on any user-level endpoints; if found on non-security workstations, immediately remove the binaries and rotate the credentials of any users who had administrative access to those hosts to mitigate potential lateral movement risks.",
+    "linked_alerts": [
+      {
+        "id": 45,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 46,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 47,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 48,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 49,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 50,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 51,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 52,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 53,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 54,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 55,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 56,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 57,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 58,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 59,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 60,
+        "title": "Nmap Port Scan Detected from 23.212.254.11",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 61,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 62,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 63,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 64,
+        "title": "Nmap Port Scan Detected from 103.251.209.240",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 65,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 66,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 67,
+        "title": "Nmap Port Scan Detected from 172.217.114.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 68,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 69,
+        "title": "Nmap Port Scan Detected from 142.251.155.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 5,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.111",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 13:41:54",
+    "summary": "**Executive Summary:**\nThis incident involves multiple high-severity alerts indicating persistent Nmap port scanning activity originating from the internal IP address 192.168.0.111. The repeated nature of these scans suggests an active reconnaissance phase aimed at mapping network assets, posing a significant risk of information disclosure and providing a foothold for potential lateral movement. However, external threat intelligence from VirusTotal and AbuseIPDB shows no malicious flags or threat history associated with the source, indicating that this activity likely stems from internal authorized testing or misconfigured management tools rather than a known external adversary. Immediate verification of the source host's identity and authorization for scanning activities is recommended to rule out insider threats or compromised internal endpoints.",
+    "recommendation": "1. Isolate the host 192.168.0.111 from the network by adding a deny rule to the firewall or access control list (ACL) for all non-management traffic, specifically blocking outbound ports typically targeted by Nmap (e.g., TCP/UDP 1-1024 and common service ports), while allowing only essential administrative access (e.g., SSH/RDP) to verify the host's status without disrupting potential investigation access.\n2. Capture live network traffic from the host using `tcpdump` or a Network Intrusion Detection System (NIDS) to analyze the specific scan patterns (e.g., SYN, FIN, XMAS), frequency, and target IP ranges, confirming whether the activity matches authorized security testing signatures or uncontrolled broad-scope reconnaissance, and save the packet capture (PCAP) as forensic evidence before any further action.\n3. Execute a remote login to 192.168.0.111 (using an out-of-band management channel if available) to identify the running process consuming network resources using commands like `lsof -i` or `netstat -an | grep <target_ip>`, correlate the process owner and PID with the user account privileges, and immediately terminate the unauthorized scanning process if it does not match known, approved testing toolchains.",
+    "linked_alerts": [
+      {
+        "id": 70,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 71,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 72,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 73,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      },
+      {
+        "id": 74,
+        "title": "Nmap Port Scan Detected from 172.217.117.4",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 7,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.111",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 13:57:48",
+    "summary": "Incident ID 7 indicates a high-severity reconnaissance activity, specifically an Nmap port scan initiated from the internal IP address 192.168.0.111. This activity suggests either potential internal lateral movement, an unauthorized asset discovery attempt, or a misconfigured application, posing a significant risk to the integrity of the internal network perimeter. Despite the high internal alert severity, external threat intelligence sources, including VirusTotal and AbuseIPDB, currently show no historic malicious associations or confirmed threat actor profiles for this source. Consequently, while the behavior warrants immediate investigation to determine the legitimacy of the host, there is no external evidence confirming it as a known external threat.",
+    "recommendation": "1. Immediately execute a host-level forensic investigation on the internal IP `192.168.0.111` using live process monitoring tools (such as `ps aux` or specialized endpoint detection agents) to identify the specific process ID (PID) responsible for the port scan, capturing its binary path, command-line arguments, and parent process to determine if the activity stems from a legitimate network administration tool, a compromised service, or an unauthorized user script.\n\n2. Isolate the suspect host `192.168.0.111` from the network segment by applying an immediate egress and ingress block on the managing firewall or network access control system, specifically restricting any outbound traffic from this IP to other internal subnets to prevent potential lateral movement or data exfiltration, while preserving the host\u2019s management interface for remote forensic access if necessary.\n\n3. Retrieve and analyze the complete network traffic capture (PCAP) associated with the Nmap scan initiated by `192.168.0.111` to map the exact range of ports and services probed, correlating this data with the host\u2019s authorized asset inventory to identify any unregistered devices or services discovered during the reconnaissance phase, thereby scoping the potential blast radius of the internal exposure.",
+    "linked_alerts": [
+      {
+        "id": 113,
+        "title": "Nmap Port Scan Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 14,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.50",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 14:02:20",
+    "summary": "A high-severity nmap port scan was detected originating from internal IP address 192.168.0.50, indicating active reconnaissance activity within the network perimeter. This behavior poses a significant risk of unauthorized lateral movement or targeted exploitation, contributing to the incident's high overall risk score of 80.0. However, external threat intelligence sources, including VirusTotal and AbuseIPDB, provide limited corroboration for this specific source, with only minor malicious flags and no direct attribution to known external bad actors. Consequently, the incident is likely driven by an internal threat or compromised host rather than a confirmed external attack vector.",
+    "recommendation": "1. **Isolate and Image the Source Host**: Immediately disconnect the host at IP address 192.168.0.50 from the network via port mirroring or switch-level blocking to preserve forensic evidence; then, acquire a full disk image using write-blockers to analyze for persistence mechanisms, rootkits, or altered audit logs that confirm the specific scanned ports or commands used for reconnaissance.\n\n2. **Enforce Immediate Network Segmentation and ACLs**: Deploy temporary Access Control Lists (ACLs) on adjacent switches/routers to deny all traffic from 192.168.0.50 to critical infrastructure (e.g., file servers, databases, domain controllers) while blocking all outbound internet access from this host to prevent data exfiltration; simultaneously, escalate the segregation policy to isolate the subnet containing 192.168.0.50 from other internal VLANs to halt lateral movement.\n\n3. **Deploy Detailed Logging and Correlation Rules**: Enable verbose TCP/IP stack logging (including SYN packets and connection attempts) on the isolated host\u2019s subnet and centralize logs in a SIEM with specific correlation rules matching the detected port scan patterns (e.g., rapid sequential port hits) to identify if other internal hosts are showing similar reconnaissance behavior, thereby allowing you to pivot-point analyze potential compromised peers before re-integrating the original host into a monitored quarantine zone.",
+    "linked_alerts": [
+      {
+        "id": 120,
+        "title": "Nmap Port Scan Detected from 192.168.0.50",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 41,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.1",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 14:04:56",
+    "summary": "**[Mock Fallback Mode]**\nError contacting Groq API. Check your key. Details: 404 Client Error: Not Found for url: https://api.g",
+    "recommendation": "**[Mock Fallback Mode]**\nError contacting Groq API. Check your key. Details: 404 Client Error: Not Found for url: https://api.g",
+    "linked_alerts": [
+      {
+        "id": 147,
+        "title": "Nmap Port Scan Detected from 192.168.0.1",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 45,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.1",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-09 14:38:51",
+    "summary": "Incident 45 represents a high-severity event triggered by an Nmap port scan originating from the internal IP address 192.168.0.1. Although external threat intelligence sources, including VirusTotal and AbuseIPDB, show no malicious flags or known associations with this activity, the high risk score (80.0) indicates a significant concern regarding potential internal reconnaissance or unauthorized lateral movement. The absence of external threat data suggests this is likely an insider threat or a compromised internal host rather than an external attacker, necessitating immediate internal investigation to identify the source of the scanning activity.",
+    "recommendation": "1. **Isolate the Compromised Host**: Immediately disconnect the device at IP address `192.168.0.1` from the network segment to prevent further reconnaissance, data exfiltration, or lateral movement; ensure the machine is preserved for forensic investigation rather than being rebooted, which could wipe volatile memory evidence.\n\n2. **Implement Egress Filtering and ACLs**: Apply strict Access Control Lists (ACLs) on the local switch or firewall to block all outbound traffic from `192.168.0.1` to internal sensitive subnets (e.g., server VLANs) and enforce egress filtering to prevent the host from initiating connections with external endpoints until its compromise status is verified.\n\n3. **Audit Internal Services and Deploy Endpoint Detection Response (EDR) Isolation**: Execute a targeted forensic image of the host\u2019s disk and memory while simultaneously deploying EDR tools to the highest-risk internal assets targeted by the scan (identified by the specific ports probed by Nmap) to detect and automatically quarantine any active malware payloads or persistent roots that may have been deployed during the reconnaissance phase.",
+    "linked_alerts": [
+      {
+        "id": 151,
+        "title": "Nmap Port Scan Detected from 192.168.0.1",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 113,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.222",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-10 02:12:47",
+    "summary": "Incident 113 represents a high-severity network reconnaissance activity involving an Nmap port scan originating from internal IP address 192.168.0.222, suggesting potential insider threat or lateral movement attempts. The primary risk lies in the exposure of open services and system vulnerabilities to an unauthorized scanner, which could facilitate subsequent exploitation if the source is compromised. However, external threat intelligence from VirusTotal and AbuseIPDB returned no malicious flags or historical data, indicating that this IP is not currently associated with known external botnets or public threat actors. Consequently, the investigation should focus primarily on internal asset compromise or policy violations rather than external cyberattack activity.",
+    "recommendation": "1.  **Isolate the Source Host and Capture Forensic Artifacts**\n    Immediately place host **192.168.0.222** into a quarantine zone by applying an ACL deny rule at the perimeter and core switches to block all inbound and outbound traffic except for management channel access (if safe), and execute a live forensic capture using tools like `Volatility` (for memory dumps) and `ETW`/`WinPMEM` to preserve process creation, network connections, and executed binaries. This prevents the host from initiating further lateral movement or exfiltrating the reconnaissance data while capturing the specific Nmap invocation command, user context, and any accompanying RAT or malware persistence mechanisms.\n\n2.  **Hunt for Lateral Movement and Credentialed Abuse**\n    Deploy targeted Sigma or Splunk queries across the entire internal network to identify any security events where **192.168.0.222** established SMB (445), RDP (3389), or WinRM (5985) connections to other assets within the last 24 hours, specifically correlating with successful logon events (Event ID 4624) and privilege escalation (Event ID 1610). Simultaneously, scan the Active Directory for newly added local administrator accounts or modified GPOs within the same timeframe to confirm if the Nmap scan was a precursor to credential stuffing or Pass-the-Hash attacks.\n\n3.  **Enforce Strict Internal Network Segmentation and Monitoring**\n    Implement immediate micro-segmentation policies to deny direct network access from the workstation VLAN (where 192.168.0.222 resides) to critical server subnets, database tiers, and internet-facing appliances, ensuring that no direct connections can be made between endpoints without an approved jump server. Additionally, deploy temporary IDS/IPS signatures to detect and alert on any repeated high-volume SYN scans or Nmap-specific timing patterns (e.g., --syn, --sweep, --version) from any internal IP, thereby preventing the recurring exposure of open services that the initial scan likely targeted.",
+    "linked_alerts": [
+      {
+        "id": 219,
+        "title": "Nmap Port Scan Detected from 192.168.0.222",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 114,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.222",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-10 02:12:48",
+    "summary": "Incident 114 involves a high-severity nmap port scan originating from the internal IP address 192.168.0.222, resulting in an overall risk score of 80.0. This activity indicates an active reconnaissance attempt to map network services, which could precede a targeted lateral movement or privilege escalation if the scan was conducted by a compromised internal asset or an unauthorized user. External threat intelligence feeds, including VirusTotal and AbuseIPDB, have not flagged the source IP as malicious or suspicious, suggesting this is likely an internal threat or misconfigured device rather than an external adversary. Immediate containment and forensic investigation of the host 192.168.0.222 are recommended to determine the intent and scope of the scanning activity.",
+    "recommendation": "1. **Isolate and preserve forensic artifacts from host 192.168.0.222**: Immediately quarantine the host at 192.168.0.222 by removing it from the network segment (or applying a strict host-based firewall rule to block all outbound/inbound traffic except to the incident response team's monitoring station). Before disconnecting, capture a complete memory dump (e.g., using `foremost` or `Volatility`) and acquire a bit-for-bit disk image to preserve ephemeral evidence such as running nmap processes, temporary scan output files, or potential rootkit signatures that may have been installed to facilitate lateral movement.\n\n2. **Identify and neutralize the scanning application and user context**: On the captured system image (or via live triage if isolation allows), identify the specific user account and process ID (PID) that executed the nmap scan by correlating firewall logs with local audit trails (`/var/log/audit/audit.log` or `auth.log`). Execute `kill -9 <PID>` to terminate the active scanning process, then immediately disable or lock the associated user account via `passwd -l <username>` and revoke all active SSH/TLS sessions tied to that identity to prevent further reconnaissance or unauthorized access.\n\n3. **Deploy targeted network segmentation and monitoring controls**: Configure an immediate deny rule in the upstream network firewall or switch ACLs to block all unsolicited inbound and outbound traffic from 192.168.0.222, restricting communication only to the centralized logging server and emergency RDP/SSH jump host. Simultaneously, spin up a high-fidelity monitoring agent (such as OSSEC or Falco) on the host to detect any residual persistence mechanisms (e.g., cron jobs, systemd services, or WMI event subscriptions) created by the scanner or underlying malware, triggering an automatic shutdown if any new privileged network connection attempt is detected.",
+    "linked_alerts": [
+      {
+        "id": 220,
+        "title": "Nmap Port Scan Detected from 192.168.0.222",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 116,
+    "title": "Incident: Nmap Port Scan Detected from 192.168.0.222",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-10 02:15:59",
+    "summary": "The incident involves a high-severity Nmap port scan detected from internal IP address 192.168.0.222, indicating active reconnaissance efforts against the network infrastructure. While the source is internal, the aggressive scanning behavior poses a significant risk of mapping open services and identifying vulnerabilities for potential lateral movement or exploitation. External threat intelligence from VirusTotal and AbuseIPDB returned no malicious flags or adverse history, suggesting this activity is likely authorized compliance scanning or an insider threat rather than a known external malicious actor. Immediate investigation into the legitimacy of the host's activity and verification of user authorization are required to mitigate the risk of unauthorized network enumeration.",
+    "recommendation": "1.  **Isolate the Host via Network Microsegmentation**: Immediately configure the upstream switch or firewall to apply an ACL that drops all outbound traffic from `192.168.0.222` except for explicitly whitelisted administrative ports (e.g., 443, 5986 if using WinRM), effectively blocking any further reconnaissance, lateral movement, or data exfiltration while preserving basic connectivity for rapid investigative access.\n\n2.  **Execute Forensic Capture and Snapshot**: Attach a live network packet capture (PCAP) filter specifically targeting traffic involving `192.168.0.222` to log the exact protocols, ports, and payload data being probed; simultaneously, generate a forensic disk image and memory dump of the host using tools like FTK Imager or Volatility to preserve network artifacts and process lists for determining whether the scan was automated, manual, or part of an approved compliance script.\n\n3.  **Verify and Revoke Unauthorized Access Rights**: Cross-reference the hostname and MAC address of `192.168.0.222` against the asset inventory and recent change logs to identify the assigned user; if the activity cannot be linked to a documented, approved scanning job (e.g., from jump servers or admin workstations), immediately disable the associated user account locally and in Active Directory, and rotate all credentials accessible from that host to prevent further exploitation.",
+    "linked_alerts": [
+      {
+        "id": 222,
+        "title": "Nmap Port Scan Detected from 192.168.0.222",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 125,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.222",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:17:22",
+    "summary": "Incident 125, classified as critical due to its high risk score of 95.0, involves a detected UDP flood DDoS attack originating from the internal IP address 192.168.0.222. This traffic pattern poses a significant threat to network availability, likely resulting in service degradation or total outage for affected systems. However, external threat intelligence from VirusTotal and AbuseIPDB does not corroborate this as an action by a known malicious external actor, with no associated malicious flags or reputation data found. This discrepancy suggests a potential internal lateral movement attempt, misconfigured device, or compromised internal host rather than an external attack.",
+    "recommendation": "1. **Immediately isolate the source host 192.168.0.222 from the network plane** by configuring an emergency port-security drop or ACL on the upstream switch port associated with that MAC address, or by directly powering down the device if physical access is permitted, to halt the UDP flood traffic and prevent further lateral movement or resource exhaustion.\n\n2. **Capture forensically sound network traffic from 192.168.0.222** using a local monitored endpoint or span port (if safe from amplification) to generate a full packet capture (PCAP) of the UDP flood, specifically analyzing the packet payload, destination ports, and source/destination IP pairs to distinguish between a misconfigured IoT device, a vulnerable DHCP/NTP client, and active malicious intrusion tooling.\n\n3. **Perform an immediate host-level integrity and process audit on 192.168.0.222** by booting the system from a clean, known-good external emergency recovery medium to bypass potential rootkits, then scan for unauthorized processes, anomalous outbound connections, or modified system files (using tools like `rootkit-revealer`, `SAM`, or vendor-specific EDR agents), prioritizing the detection of any active UDP generation binaries or script persistence mechanisms.",
+    "linked_alerts": [
+      {
+        "id": 231,
+        "title": "DDoS UDP Flood Detected from 192.168.0.222",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 136,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.222",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:20:56",
+    "summary": "This critical incident involves a high-severity UDP flood attack originating from internal IP 192.168.0.222, indicating a potential compromised asset or lateral movement threat within the network periphery. Although the absence of external threat intelligence matches (VirusTotal and AbuseIPDB) suggests the source does not exhibit known malicious characteristics on public platforms, this lack of data does not rule out an internal attack or a novel technique, potentially stemming from misconfigurations or insider threats. The high risk score (95.0) reflects the immediate capacity for service disruption and resource exhaustion, necessitating urgent containment and forensic investigation of the flagged host. Immediate isolation of 192.168.0.222 is recommended to prevent further impact on network availability while the root cause is determined.",
+    "recommendation": "1.  **Isolate the Compromised Host via Layer 2/3 Segmentation**: Immediately apply an access control list (ACL) or execute a port security violation on the specific switch port connected to 192.168.0.222 to block all outbound and inbound UDP traffic, or administratively shut down the interface if traffic is critical to business continuity only through that single vector. This physically and logically disconnects the source from the network fabric to stop the active flood and prevent further lateral movement while preserving the host's memory state for potential live forensics if the shutdown is handled via a temporary quarantine VLAN rather than a hard power-off.\n\n2.  **Deploy Precise NetFlow/sFlow Filtering to Identify Attacking Process Details**: Attach a live TCP/UDP stream filter via `nftables` or `iptables` on the upstream gateway facing the 192.168.0.0/24 subnet to log specific packet headers (source port, destination port, payload length) from 192.168.0.222. Simultaneously, enable detailed SDN telemetry or SPAN the port to 192.168.0.222 to a forensic collector, correlating timestamps of traffic spikes with system logs on the host to identify the specific process ID (PID) or network service consuming resources, distinguishing between a software exploit (e.g., compromised daemon sending loops) and hardware misconfiguration (e.g., rogue NIC broadcast storm).\n\n3.  **Execute Host-Level Forensic Procurement Before Re-imaging**: Prior to any OS re-installation or hard reset, capture a memory dump from 192.168.0.222 using a tool compatible with the host OS (e.g., `memdump` for Linux or `winpmem` for Windows) and extract the process list (`ps aux` or `tasklist`), open socket connections (`netstat -anp`), and recent audit/cron logs. This preserves evidence of the attack vector (such as rootkit signatures, unauthorized cron jobs, or modified firewall rules) and allows for the creation of a precise blocklist signature applicable to the entire network if the threat is determined to be a zero-day internal exploit rather than a simple misconfiguration.",
+    "linked_alerts": [
+      {
+        "id": 242,
+        "title": "DDoS UDP Flood Detected from 192.168.0.222",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 142,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.1",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:30:27",
+    "summary": "Incident 142 involves a critical-severity Distributed Denial of Service (DDoS) attack utilizing a UDP flood originating from the internal IP address 192.168.0.1, resulting in a high overall risk score of 95.0. The availability of network services is significantly compromised by this saturation of bandwidth or resource exhaustion, posing an immediate operational risk to infrastructure hosted on that subnet. External threat intelligence feeds, including VirusTotal and AbuseIPDB, returned no malicious indicators or prior reputation data, suggesting this is not attributable to a known external black-hat actor. Consequently, the source likely represents an internal misconfiguration, a compromised internal host, or a valid internal stress test that was flagged as anomalous activity.",
+    "recommendation": "1. Isolate the suspected infected or misconfigured host by disabling the network interface or applying a restrictive firewall rule on the upstream switch/VLAN that explicitly drops all outbound UDP traffic destined for critical network ports from `192.168.0.1`, ensuring the isolation prevents further bandwidth saturation while allowing for forensic inspection of the host\u2019s local logs and processes to determine if it is compromised or simply misconfigured.\n\n2. Implement rate limiting and traffic filtering rules at the edge firewall or ingress switch specifically targeting UDP flood patterns, utilizing techniques such as URPF (Unicast Reverse Path Forwarding) to drop packets with mismatched source addresses and configuring ACLs to limit the rate of UDP packets per second from internal subnets, thereby protecting downstream services from resource exhaustion even if the source re-activates.\n\n3. Engage the incident response team to conduct a forensic snapshot of the `192.168.0.1` host (capturing memory dumps, process listings, and recent authentication logs) before any remediation actions like re-imaging, while simultaneously verifying whether recent change logs indicate a scheduled stress test or configuration error was executed from that IP, to classify the event as malicious intrusion versus operational anomaly.",
+    "linked_alerts": [
+      {
+        "id": 248,
+        "title": "DDoS UDP Flood Detected from 192.168.0.1",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 148,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.99",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:35:22",
+    "summary": "This incident involves a critical-severity UDP DDoS flood originating from the internal IP address 192.168.0.99, resulting in a high risk score of 95.0. The potential impact includes significant service degradation or complete unavailability for targeted network assets due to saturated bandwidth and processing resources. Notably, external threat intelligence sources such as VirusTotal and AbuseIPDB show no malicious flags or historical data, indicating this is likely an internal threat, misconfigured device, or compromised internal host rather than a known external actor.",
+    "recommendation": "1. **Immediately isolate the source host (192.168.0.99) at the network perimeter by deploying a temporary ACL or `iptables` rule to drop all UDP traffic destined to or sourced from this specific IP address.** This action should be executed on the upstream firewall, core switch, or nearest network segment gateway to instantly halt the bandwidth saturation and processing load caused by the flood, preventing collateral damage to other internal assets while preserving the host for forensic analysis.\n\n2. **Perform an immediate live forensic capture and memory dump of 192.168.0.99 to identify the compromised process, malware signature, or misconfigured service generating the UDP packets.** Use tools like `tcpdump` (filtering for UDP destination ports if known, or broad capture if unknown), `netstat`/`ss` to identify active UDP sockets, and `top`/`htop` to pinpoint high-CPU processes associated with the traffic burst; correlate this with local Windows Event Logs (Linux `/var/log/syslog` or `auth.log`) to determine the attack vector (e.g., crypto-mining miner, botnet client, or misconfigured UPnP port-forwarding).\n\n3. **Implement and enforce network segmentation rules to prevent lateral movement and re-emergence of the flood, specifically by creating a dedicated VLAN or ACL policy that restricts 192.168.0.99\u2019s outbound UDP traffic to only explicitly required services.** This involves reviewing and tightening firewall rules to deny unsolicited UDP traffic from this host to all other subnets, ensuring that even if the host is re-compromised or remains misconfigured, its ability to initiate network-wide DDoS traffic is technically neutralized until full remediation and re-imaging are complete.",
+    "linked_alerts": [
+      {
+        "id": 254,
+        "title": "DDoS UDP Flood Detected from 192.168.0.99",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 194,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.152",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:43:18",
+    "summary": "This critical incident involves a DDoS UDP flood attack originating from the internal IP address 192.168.0.152, indicating a compromised internal asset rather than a direct external intrusion. The high severity score of 95.0 suggests a substantial impact on network availability and potential saturation of bandwidth resources. Notably, external threat intelligence from VirusTotal and AbuseIPDB shows no malicious flags or known threats, which confirms that the source is likely an internal system under attacker control or misconfigured, rather than a recognized external botnet node. Immediate containment of the internal host is required to prevent further lateral movement or service disruption.",
+    "recommendation": "1. **Isolate the compromised host (192.168.0.152) at the network boundary** by applying an immediate deny-all rule for this specific source IP at the perimeter firewall or internal segmentation firewall (e.g., `iptables -A INPUT -s 192.168.0.152 -j REJECT` or equivalent in pfSense/RouterOS), effectively cutting off the DDoS traffic at the source while preserving network visibility for forensics; if the host is on the same L2 segment as critical servers, additionally initiate a port-level block on the affected UDP services at the next-hop gateway.\n\n2. **Capture a live forensic memory dump and disk image** from 192.168.0.152 before remediation or rebooting, using remote execution tools (e.g., WinPmem for Windows or LiME for Linux) if the endpoint is accessible, to preserve evidence of the malware or misconfiguration responsible for the UDP flood and to identify any lateral movement artifacts or persistent implants that may have been established during the compromise.\n\n3. **Deploy a temporary rate-limiting policy on the affected UDP destination service** at the upstream switch or firewall using ACLs or QoS policies (e.g., limit packets per second to 1000 from any internal subnet to the target service) immediately after isolating 192.168.0.152, to mitigate any residual amplification effects and protect application availability while the root cause on the isolated host is analyzed and eradicated.",
+    "linked_alerts": [
+      {
+        "id": 300,
+        "title": "DDoS UDP Flood Detected from 192.168.0.152",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 205,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.151",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:52:32",
+    "summary": "This critical security incident involves a high-volume UDP flood DDoS attack originating from the internal IP address 192.168.0.151, posing an immediate threat to network availability and service continuity. The attack aims to overwhelm targeted infrastructure resources, potentially resulting in significant operational disruption and denial of service for legitimate users. Notably, external threat intelligence feeds from VirusTotal and AbuseIPDB show no prior malicious flags or historical data for the source IP, indicating that this is likely an internal breach or unauthorized lateral movement rather than a known external malicious actor. Given the critical severity and the lack of external confirmation, immediate isolation of the involved internal host is recommended to prevent further propagation of the attack.",
+    "recommendation": "1. **Isolate the Compromised Host via Port-Based ACLs**: Immediately apply a specific Access Control List (ACL) on the upstream Layer 2/3 switch or firewall interfacing with a local VLAN to drop all UDP traffic destined for any port originating from source IP `192.168.0.151`. This step neutralizes the active flood vector while preserving ICMP reachability for brief diagnostics, ensuring the broadcast domain does not experience collateral service disruption.\n\n2. **Deploy Rate Limiting on Affected Services**: Configure UDP-specific rate limiting (e.g., using `tc` traffic control or firewall conntrack limits) on the primary-facing routers or load balancers to cap UDP packet-per-second (PPS) and byte-per-second (BPS) rates from the `192.168.0.0/24` subnet to a baseline normalcy threshold, preventing residual or replicated internal traffic from saturating the uplink bandwidth during the investigation window.\n\n3. **Execute Immediate Forensic Capture and Host Containment**: Initiate a live network protocol analyzer (e.g., `tcpdump` or `-` port-spanning) specifically filtering for `src host 192.168.0.151 and udp` to establish an immutable evidence trail of the attack pattern, while simultaneously forcing a network-level disconnect of the host\u2019s physical switch port or virtual vNIC to prevent any further lateral movement or data exfiltration.",
+    "linked_alerts": [
+      {
+        "id": 311,
+        "title": "DDoS UDP Flood Detected from 192.168.0.151",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 208,
+    "title": "Incident: DDoS UDP Flood Detected from 192.168.0.151",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-10 02:52:36",
+    "summary": "Incident 208 involves a critical DDoS UDP flood originating from the internal IP address 192.168.0.151, presenting a severe immediate risk to network availability. The nature of this Internal Traffic Attack suggests a compromised host or an insider threat initiating a denial-of-service condition, which could lead to significant service disruption or infrastructure degradation. External threat intelligence via VirusTotal and AbuseIPDB does not provide corroborating data, as the source is an internal asset rather than a known external malicious actor. Immediate isolation of the source host is recommended to contain the potential lateral movement or resource exhaustion impact.",
+    "recommendation": "1.  **Immediately isolate host 192.168.0.151 by disabling its network interface via out-of-band management or access control lists.** Connect to the switch port where 192.168.0.151 is physically located and administratively shut down the interface, or if centralized management is available, issue an immediate administrative shutdown to the host\u2019s network interface (e.g., `sudo ifconfig eth0 down` or `sudo ip link set eth0 down`). This severs the host from the network, stopping the UDP flood and preventing potential lateral movement before the host is investigated or wiped.\n\n2.  **Deploy an emergency network-device-level mitigation to drop unauthenticated UDP traffic destined for critical services.** On the core switch or next-generation firewall nearest to the affected segment, create a temporary ACL or security policy that drops UDP packets exceeding a defined rate threshold (e.g., >100 pps) from the 192.168.0.0/16 subnet to any critical internal UDP services (such as DNS, NTP, or application ports). Use commands specific to your infrastructure (e.g., `ip access-list extended block_ddos` followed by `deny udp any any eq 53` or rate-limiting policies) to protect downstream services while the source remains isolated, ensuring that any residual or delayed packets do not exhaust system resources.\n\n3.  **Capture and preserve forensic evidence from the isolated host and network logs before performing any remedial cleanup.** Immediately take a full memory dump and disk image of 192.168.0.151 using forensically sound tools (e.g., FTK Imager, Volatility) while the host is powered off but the local disk is still intact, or ensure the isolated host\u2019s OS is not tampered with if it remains powered up for live triage. Concurrently, export the last 24 hours of switch logs, firewall event records, and Syslog data related to 192.168.0.151 to a secure, read-only evidence repository to document the attack timeline, identify potential malware beacons in memory, and determine whether the compromise was driven by an insider credential leak or an exploit that must be patched across other segments.",
+    "linked_alerts": [
+      {
+        "id": 314,
+        "title": "DDoS UDP Flood Detected from 192.168.0.151",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 213,
+    "title": "Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.111",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-13 10:15:38",
+    "summary": "Incident 213 involves a high-severity network port scan and reconnaissance activity originating from the internal IP address 192.168.0.111. While external threat intelligence sources such as VirusTotal and AbuseIPDB show no malicious flags, this lack of external correlation suggests the activity may stem from an internal user or compromised internal asset rather than a known external threat actor. The primary risk involves potential information disclosure or lateral movement preparation, necessitating immediate investigation of the host performing the scan. Given the high risk score, containment measures and forensic analysis of the source endpoint are recommended to determine the scope of the reconnaissance.",
+    "recommendation": "1. **Immediately Isolate Host 192.168.0.111 via Network Segmentation**: Apply an immediate ACL (Access Control List) rule on the boundary router or firewall near the subnets 192.168.0.0/24 to deny all ingress and egress traffic to/from 192.168.0.111, except for a dedicated, monitored forensic management channel (e.g., via a trusted jump host using secure copy/SSH), preventing further reconnaissance, lateral movement, or data exfiltration while preserving the system for forensic capture.\n\n2. **Execute Volatile Forensic Evidence Collection on 192.168.0.111**: Prior to any reboot, immediately capture volatile memory (using tools like `linen` or `WinPMEM` depending on OS) and create a full disk image using write-blockers to preserve file system integrity; specifically analyze the network namespace (`netstat`/`ss` outputs), open sockets, and recently modified firewall rules or port forwarding configurations to identify active connections, persistence mechanisms, or unauthorized services used for the scan.\n\n3. **Audit Internal Network Flow Logs for Lateral Movement Corroboration**: Query NetFlow, IPFIX, or structured firewall logs for the time window surrounding the scan to identify any privileged TCP/UDP connections (e.g., SMB, RDP, SSH, PsExec) initiated by 192.168.0.111 to other internal assets, and cross-reference these with authentication logs (SIEM) to determine if the host successfully authenticated to other systems, thereby defining the potential blast radius of the threat.",
+    "linked_alerts": [
+      {
+        "id": 319,
+        "title": "Network Port Scan / Reconnaissance Detected from 192.168.0.111",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 343,
+    "title": "Incident: Network Port Scan / Reconnaissance Detected from 10.93.202.78",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-14 16:25:32",
+    "summary": "Incident 343 involves high-severity reconnaissance activity, specifically network port scanning, originating from internal IP address 10.93.202.78, which presents a significant risk of unauthorized access or lateral movement within the internal network. While the activity confirms active probing attempts, external threat intelligence feeds from VirusTotal and AbuseIPDB returned no malicious flags or historical data for the source IP. This suggests the host is likely a compromised internal asset, the result of insider misuse, or a misconfigured device rather than a known external cybercriminal, though the high risk score necessitates immediate containment and forensic investigation to determine the origin of the scan.",
+    "recommendation": "1. **Isolate the Host and Forensically Image the Disk**: Immediately connect to the management switch or network isolation tool to administratively disable the network interface or apply a strict access control list (ACL) on the uplink port serving IP `10.93.202.78` to block all inbound and outbound traffic, preserving the host's state. Before performing a reboot or shutdown, capture a full disk image and volatile memory dump (using tools like FTK Imager or Forensic Mode in Windows/Linux) to preserve evidence of the scanning payload, compromised credentials, or persistence mechanisms, as the lack of external threat intelligence suggests a local compromise or insider threat that requires host-level forensic validation.\n\n2. **Enforce Ephemeral Source Authentication and Review Group Membership**: Investigate the account associated with `10.93.202.78` in Active Directory (or equivalent identity provider) by checking the `lastLoginTime`, `servicePrincipalName`, and group memberships for service accounts or administrative privileges. If the account belongs to a service or automated system, disable the account immediately, force a password rotation for any shared credentials used by that host, and review recent JIT (Just-In-Time) access approvals or elevation events to identify if a legitimate user misused their credentials to launch the scan from this endpoint.\n\n3. **Deploy Host-Based Intrusion Prevention System (HIDS) Agent with Live Memory Scanning**: Push an updated HIDS agent (such as CrowdStrike, SentinelOne, or Microsoft Defender for Endpoint) to the isolated host `10.93.202.78` specifically configured for live memory scanning and process lineage analysis. Execute a real-time scan focusing on recently executed executables, anomalous network connections (particularly to internal ports), and injected modules to identify the specific malware or script responsible for the reconnaissance activity, while simultaneously checking for beaconing to known C2 domains via netflow logs from the last 24 hours to rule out data exfiltration coinciding with the scan.",
+    "linked_alerts": [
+      {
+        "id": 449,
+        "title": "Network Port Scan / Reconnaissance Detected from 10.93.202.78",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 346,
+    "title": "Incident: DDoS Volumetric Flood Detected from 10.93.202.128",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-15 10:45:41",
+    "summary": "Incident 346 involves a critical-severity DDoS volumetric flood originating from the internal IP address 10.93.202.128, indicative of a significant internal compromise or misconfiguration potentially being leveraged for denial-of-service attacks. The overall risk score of 95.0 confirms the high likelihood of service disruption and infrastructure degradation for targeted systems. External threat intelligence feeds, including VirusTotal and AbuseIPDB, currently show no malicious flags or associated data, suggesting this activity is not linked to known external threat actors but rather represents an insider threat, botnet activity from within the network, or a localized vector. Immediate containment of the originating host and forensic analysis are required to determine the root cause and prevent further amplification of the attack.",
+    "recommendation": "1. **Quarantine Host 10.93.202.128 via Switch Port Isolation**\n   Immediately identify the physical or virtual switch port associated with IP `10.93.202.128` and isolate the host from the network. If physical access is available, disable the specific access port on the upstream switch to sever connectivity without affecting other segments. If virtualized (e.g., VMware/OpenStack), move the VM to a designated \"quarantine VLAN\" or disable its vNIC in the hypervisor to halt the traffic flood while preserving memory and disk state for forensic extraction.\n\n2. **Deploy Rate-Limiting and Blackhole Filtering at the Core Router**\n   Implement immediate traffic engineering controls on the core distribution switch or router: apply a strict ingress ACL to drop all non-essential traffic from `10.93.202.128`, and configure a null0 interface (blackhole route) for any residual traffic that bypasses port isolation. Additionally, enable global DDoS mitigation features (such as IP CoS Bandwidth-based QoS or stateful flow inspection) to automatically detect and suppress high-volume unicast/broadcast floods originating from internal subnets to protect downstream services.\n\n3. **Execute Live Forensic Memory Capture and Log Correlation**\n   Prior to rebooting the compromised host, capture a full memory dump (using tools like `memdump` or Windows `kd -y`) to preserve volatile data, including active network sockets and potential in-memory malware. Simultaneously, ingest and correlate system logs, firewall connection tracking logs, and SNMP trap data from the last 15 minutes to trace the exact start time of the flood and identify any lateral movement commands or unauthorized process spawns that triggered the DDoS behavior.",
+    "linked_alerts": [
+      {
+        "id": 452,
+        "title": "DDoS Volumetric Flood Detected from 10.93.202.128",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 347,
+    "title": "Incident: DDoS Volumetric Flood Detected from 10.93.202.128",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-15 10:47:49",
+    "summary": "**Executive Summary: Incident #347 (Critical)**\n\nThe security operations team detected a critical-severity volumetric DDoS attack originating from the internal IP address 10.93.202.128, indicating a potential internal compromise or misconfigured infrastructure causing service degradation. Although no external threat intelligence feeds such as VirusTotal or AbuseIPDB currently flag this source as malicious, the lack of external confirmation does not mitigate the immediate critical risk score of 95.0 or the potential for network saturation and denial of service. Immediate isolation and forensic investigation of the implicated host are required to determine if this is a coordinated insider threat, a compromised asset, or an infrastructure fault, ensuring swift containment to restore availability.",
+    "recommendation": "Based on the incident analysis detailing a critical volumetric DDoS attack originating from internal IP 10.93.202.128, here are three immediate technical remediation steps:\n\n1. **Isolate the Source Host at the Network Edge**: Immediately configure an Access Control List (ACL) on the upstream core switch or firewall to drop all traffic to and from IP address `10.93.202.128`. This prevents the affected host from consuming additional bandwidth, potentially preventing further network saturation, and stops the vector from propagating lateral threats while preserving the machine state for forensics.\n2. **Preserve Forensic Evidence Before Power Cycling**: Prior to any operational reset, capture a live memory dump (RAM) and create a full disk image of the affected host using write-blockerasers to ensure the integrity of volatile data. This secures evidence regarding the specific payloads, botnet commands, or misconfiguration settings responsible for the volumetric traffic, which is critical for identifying whether the vector is malware, a compromised root account, or a runaway application.\n3. **Implement Immediate Rate-Limiting on Affected Services**: Deploy temporary iptables or nftables rules on the primary gateway to cap connection rates and packet volumes for the specific service ports being subjected to the DDoS attack (e.g., TCP 80/443). This limits the impact of any residual saturation from the isolated host and protects other legitimate users on the network while the root cause of the internal traffic spike is fully investigated.",
+    "linked_alerts": [
+      {
+        "id": 453,
+        "title": "DDoS Volumetric Flood Detected from 10.93.202.128",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 365,
+    "title": "Incident: DDoS Volumetric Flood Detected from 10.93.202.128",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-15 11:01:45",
+    "summary": "Incident 365 represents a critical security event characterized by a high-intensity volumetric Distributed Denial of Service (DDoS) flood originating from the internal IP address 10.93.202.128. Although VirusTotal and AbuseIPDB report no external malicious indicators for this source, the risk score of 95.0 suggests a confirmed intentional attack or severe infrastructure compromise rather than innocent noise. The absence of external threat intelligence does not mitigate the immediate threat, indicating that the malicious actor is likely manipulating internal infrastructure to launch the flood. Consequently, this incident poses an imminent risk of total service disruption and resource exhaustion for affected systems, requiring immediate mitigation and further internal forensics to identify the hijacked asset.",
+    "recommendation": "1. Apply an immediate ACL rule at the upstream network switch or firewall to drop all egress traffic from the compromised host `10.93.202.128`, specifically isolating it on VLAN or physical port level to prevent further packet generation and block its propagation to the core network, while simultaneously capturing the last 15 minutes of flow logs from the interface hosting this IP for forensic preservation.\n\n2. Execute an immediate `kill -9` on all active processes associated with the top resource-consuming PIDs on `10.93.202.128` identified via `top` or `htop` that are consuming abnormal CPU or network I/O, then use `lsof -i -P -n | grep TCP` to identify and terminate any unauthorized listening sockets or established connections that are not part of standard business applications, prioritizing the termination of any non-standard binary or script-based flood tools.\n\n3. Initate a live forensic capture using `tcpdump` on the local loopback and outward-facing interfaces of `10.93.202.128` to record the packet structure of the DDoS flood (paying close attention to spoofed source IPs and specific port ranges), while simultaneously redeploying the host\u2019s disk image from a known-good backup or secure snapshot to overwrite potential rootkits or persistent malware artifacts before reconnecting it to the network for deeper static analysis.",
+    "linked_alerts": [
+      {
+        "id": 471,
+        "title": "DDoS Volumetric Flood Detected from 10.93.202.128",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 371,
+    "title": "Incident: DDoS Volumetric Flood Detected from 10.93.202.128",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 95.0,
+    "created_at": "2026-10-15 11:07:16",
+    "summary": "Incident 371 involves a critical severity DDoS volumetric flood originating from the internal IP address 10.93.202.128, resulting in an overall risk score of 95.0. The absence of external threat intelligence indicators from VirusTotal and AbuseIPDB suggests the source is not a known external malicious actor but rather points to an internal network compromise or a misconfigured service generating excessive traffic. This activity poses an immediate risk of service disruption and resource exhaustion for downstream systems. Immediate isolation and investigation of the compromised host are required to mitigate the ongoing denial-of-service impact.",
+    "recommendation": "1.  **Implement immediate micro-segmentation isolation** by deploying a temporary Access Control List (ACL) or firewall rule on the upstream switch or router to drop all ingress and egress traffic destined for or originating from `10.93.202.128`, while explicitly allowing ICMP ping and SSH traffic from a designated secure management VLAN (e.g., `10.10.10.0/24`) only; this physically and logically cuts off the volumetric flood source to protect downstream resources while preserving the ability to capture forensic evidence.\n\n2.  **Execute a live memory and process capture** from the compromised host using a pre-approved forensic tool (such as `fscapture` or `kmemdump`) and force-kill the top resource-consuming processes associated with high packet transmission rates (e.g., using `pkill -u <user> -f <suspicious_binary>` or `top` to identify and terminate PID) to instantly cease the active flood generation, ensuring that disk writes are protected during the process to preserve volatile memory evidence for later analysis.\n\n3.  **Deploy targeted egress filtering and rate-limiting rules** on the perimeter egress firewall or SD-WAN controller to block outbound DDoS traffic patterns from the internal subnet containing `10.93.202.128` (specifically packets with TTL anomalies, high fragmentation, or exceeding 1,000 packets per second per IP), and simultaneously enable NetFlow/IPFIX streaming to a SIEM agent to correlate real-time traffic spikes with host-based telemetry, preventing secondary compromise or lateral movement while the host remains under investigation.",
+    "linked_alerts": [
+      {
+        "id": 477,
+        "title": "DDoS Volumetric Flood Detected from 10.93.202.128",
+        "severity": "critical",
+        "mitre": "T1498 - Network Denial of Service",
+        "risk": 95.0
+      }
+    ]
+  },
+  {
+    "incident_id": 382,
+    "title": "Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-15 11:15:50",
+    "summary": "Incident 382 involves a high-severity network port scan detected from internal IP 192.168.0.161, indicating active reconnaissance or lateral movement attempts within the network environment. The successful execution of this scan poses a significant risk of information disclosure, potentially mapping open services and vulnerabilities for subsequent exploitation. External threat intelligence feeds, specifically VirusTotal and AbuseIPDB, currently show no malicious flags or historical data correlates, suggesting the source may be an internal compromise or a novel actor not yet cataloged. Given the high internal risk score, immediate isolation of the source IP and forensic investigation of accessed assets are recommended to contain potential lateral threats.",
+    "recommendation": "1. **Implement Immediate Network Segmentation and Isolation**: Apply an ACL (Access Control List) or firewall rule on the core switch or perimeter firewall to deny all ingress and egress traffic from IP `192.168.0.161`, except for authorized administrative SSH/RDP from a designated jump host if forensics require remote access; simultaneously, enable port-based access control (802.1X) to isolate the specific physical port associated with this MAC address to prevent lateral movement while preserving connectivity for forensic data extraction if the host is compromised.\n\n2. **Execute Forensic Capture and Process Audit**: Deploy a live-capture tool (such as `tcpdump` or `Wireshark`) on the segment monitoring `192.168.0.161` to capture full packet traces of the scan activity, and remotely trigger a memory dump and process listing (via `ps aux` equivalent or EDR agent) on the source host to identify the scanning tool (e.g., Nmap, Masscan) and parent processes, correlating timestamps with network logs to determine if the scan was initiated by automated malware or a user session.\n\n3. **Rotate Credentials and Audit Service Exposure**: Immediately force account lockouts and password resets for any high-privilege accounts that were active on `192.168.0.161` within the last 24 hours, and conduct a rapid vulnerability scan of the internal assets targeted by the reconnaissance to identify and patch any exposed services (such as SMB, RDP, or database ports) that may have been mapped, ensuring that no further exploitation can occur via discovered vulnerabilities.",
+    "linked_alerts": [
+      {
+        "id": 488,
+        "title": "Network Port Scan / Reconnaissance Detected from 192.168.0.161",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 383,
+    "title": "Incident: Network Port Scan / Reconnaissance Detected from 192.168.0.161",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-10-15 11:15:57",
+    "summary": "This incident involves a high-severity network port scan and reconnaissance activity originating from the internal IP address 192.168.0.161, indicating a potential compromised host or authorized vulnerability assessment within the network perimeter. The primary risk is that this reconnaissance could facilitate further lateral movement or targeted attacks if the scanning host is malicious or if valid credentials are harvested during active sessions. However, external threat intelligence from VirusTotal and AbuseIPDB shows no malicious flags or historical abuse data, suggesting that 192.168.0.161 is not currently recognized as known external malicious actor, which shifts the focus toward internal investigation to determine if this is an attacker insider, a misconfigured device, or legitimate security testing.",
+    "recommendation": "1. **Isolate and Preserve the Compromised Host (192.168.0.161)**: Immediately issue a network access control list (ACL) or switch port shutdown command at the nearest uplink switch or firewall layer to sever bidirectional traffic to `192.168.0.161` without powering it off, preserving volatile memory. Simultaneously, snapshot the host\u2019s current state using a forensic imaging tool (e.g., FTK Imager or Magnet AXIOM) to capture active processes, network connections, and running services for post-isolation analysis to distinguish between malicious activity and legitimate testing.\n\n2. **Implement Ephemeral Blocking of Scan Destinations**: Deploy a dynamic block rule on the perimeter firewall and internal segmentation firewalls to deny all incoming and outgoing traffic to the specific IP addresses and port ranges identified in the port scan logs (e.g., SYN packets to ports 1-1024, 3389, 445) for 24 hours. Attach a session timeout to this block to prevent persistent denial-of-service conditions, ensuring that any subsequent connection attempts from the attacker (if active) will fail before they can escalate from reconnaissance to exploitation.\n\n3. **Correlate and Audit Active Sessions from the Source IP**: Query your SIEM (e.g., Splunk, ELK Stack) and NetFlow/IPFIX data for the past 72 hours to identify all unique destination IPs and services contacted by `192.168.0.161`. If any internal critical assets (databases, domain controllers, file servers) were scanned with successful TCP handshakes (ESTABLISHED state), immediately rotate service account credentials and API keys associated with those specific assets, and enforce Multi-Factor Authentication (MFA) enforcement on those accounts to neutralize credential harvesting risks.",
+    "linked_alerts": [
+      {
+        "id": 489,
+        "title": "Network Port Scan / Reconnaissance Detected from 192.168.0.161",
+        "severity": "high",
+        "mitre": "T1046 - Network Service Discovery",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 499,
+    "title": "Incident: [Suricata] ET DOS UDP Flood Detected",
+    "severity": "high",
+    "status": "investigating",
+    "overall_risk_score": 75.0,
+    "created_at": "2026-11-16 13:40:19",
+    "summary": "Incident 499 involves a high-severity UDP flood attack detected by Suricata, resulting in an overall risk score of 75.0. This denial-of-service activity poses a significant threat to network availability and service continuity for affected infrastructure. However, the absence of external threat intelligence queries from VirusTotal and AbuseIPDB prevents immediate confirmation of whether the source IP is associated with known malicious actors. Consequently, further investigation is required to correlate this event with broader threat patterns and determine the specific intent behind the flood.",
+    "recommendation": "1. **Implement Rate Limiting and Stateful Inspection on UDP Traffic at the Perimeter Firewall**: Immediately configure the perimeter firewall (e.g., iptables/nftables on Linux or equivalent ACLs on hardware firewalls) to enforce strict rate limiting on UDP packets destined for critical services. Specifically, set a maximum packet rate per source IP (e.g., `limit 100/second`) and drop packets exceeding this threshold. Additionally, enable stateful inspection to ensure that UDP sessions are only established after a valid initial handshake or application-layer validation, preventing stateless flood packets from consuming connection table resources.\n\n2. **Deploy and Tune Suricata\u2019s Evasion Detection and UDP-Specific Alerting Rules**: Update Suricata\u2019s rule set to include high-fidelity signatures for UDP flood patterns (e.g., rules triggering on high-volume UDP traffic to non-standard ports or known service ports like DNS/53, NTP/123, or QUIC/443). Enable Suricata\u2019s `flowbits` and `xbits` to track anomalous UDP session behavior, and configure real-time alerting to SIEM with a threshold that triggers automatic mitigation scripts (e.g., via `suricata-update` or custom Python hooks) to temporarily blackhole the offending source IP range if the flood persists beyond 30 seconds.\n\n3. **Enable and Analyze NetFlow/IPFIX Data for Source IP Correlation and Automated Blackholing**: Activate NetFlow or IPFIX export on all affected network interfaces to capture detailed metadata (source/destination IP, port, packet count, byte count) for UDP traffic. Use this data to cross-reference with internal threat intelligence feeds and public databases (e.g., Spamhaus, BGPTools) to identify if the source IP belongs to known botnet infrastructure. If the source is confirmed malicious or unresolvable, automatically push a blackhole route (e.g., `ip route add <source_ip>/32 blackhole`) to the routing table to drop all traffic from that IP at the network edge, while preserving logs for forensic analysis.",
+    "linked_alerts": [
+      {
+        "id": 605,
+        "title": "[Suricata] ET DOS UDP Flood Detected",
+        "severity": "high",
+        "mitre": null,
+        "risk": 75.0
+      }
+    ]
+  },
+  {
+    "incident_id": 502,
+    "title": "Incident: [Suricata] ET SCAN Potential Rapid TCP Port Scan",
+    "severity": "high",
+    "status": "resolved",
+    "overall_risk_score": 75.0,
+    "created_at": "2026-11-16 13:40:20",
+    "summary": "Incident 502 indicates a high-severity security event where Suricata detected a potential rapid TCP port scan, suggesting an active reconnaissance attempt to map open services on the network. This activity poses a significant risk as it may precede targeted exploitation or data exfiltration, warranting immediate investigation to identify the source and scope of the scan. However, the absence of external threat intelligence data from VirusTotal and AbuseIPDB prevents definitive confirmation of whether the source IP is associated with known malicious actors, leaving the threat attribution unresolved. Consequently, the organization should prioritize internal log correlation and enhanced monitoring to determine if this scan was part of a broader attack campaign.",
+    "recommendation": "1. **Implement Immediate Egress and Ingress Blocking via Firewall Rules**: Configure the perimeter firewall (e.g., iptables, nftables, or cloud security groups) to drop all incoming traffic from the identified source IP address and block any outbound connections from internal hosts to that IP. Additionally, enable rate-limiting rules on the firewall to automatically block any IP address that initiates more than 10 new TCP connections to different ports within a 5-second window, thereby neutralizing the active reconnaissance vector and preventing further service mapping.\n\n2. **Correlate Internal Logs to Identify Compromised Assets and Scope**: Query the SIEM (e.g., Splunk, ELK Stack) for all network traffic logs involving the source IP over the past 24\u201348 hours, specifically filtering for successful TCP handshakes (SYN-ACK) or established sessions. Cross-reference these findings with authentication logs (e.g., `/var/log/auth.log`, Windows Event ID 4624) to determine if any internal host successfully authenticated or responded to the scan, identifying potential footholds or compromised endpoints that may have been targeted for exploitation.\n\n3. **Deploy Enhanced Host-Based Monitoring and Isolation Protocols**: On all internal hosts that showed any interaction with the scanning IP, immediately deploy or enable high-fidelity host-based intrusion detection (HIDS) agents (e.g., OSSEC, Wazuh) to monitor for post-exploitation behaviors such as unexpected process creation, privilege escalation, or outbound data exfiltration. If any host exhibits suspicious activity or cannot be verified as clean, isolate it from the network via VLAN segmentation or host firewall rules to contain potential lateral movement while forensic analysis is conducted.",
+    "linked_alerts": [
+      {
+        "id": 608,
+        "title": "[Suricata] ET SCAN Potential Rapid TCP Port Scan",
+        "severity": "high",
+        "mitre": null,
+        "risk": 75.0
+      }
+    ]
+  },
+  {
+    "incident_id": 503,
+    "title": "Incident: [Wazuh rule 5710] Suspicious Authentication Failure Spike",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-11-17 08:12:13",
+    "summary": "Incident 503 represents a critical security breach characterized by a suspicious spike in authentication failures, indicating a likely brute-force or credential stuffing attack against the organization's infrastructure. With an overall risk score of 80.0, this activity poses a significant threat to system integrity and data confidentiality, potentially leading to unauthorized access if successful. However, the absence of external threat intelligence queries from VirusTotal and AbuseIPDB means there is currently no independent confirmation linking this activity to known malicious actors or specific threat campaigns. Immediate containment measures and further forensic investigation are required to determine the scope of the compromise and validate the source of the attack.",
+    "recommendation": "1. **Implement Immediate Rate Limiting and IP Blacklisting**: Configure the firewall or Web Application Firewall (WAF) to enforce strict rate limiting on authentication endpoints (e.g., `/login`, `/api/auth`) to a maximum of 5 attempts per minute per IP address. Simultaneously, identify the top 10 source IPs generating the highest volume of failed authentication logs and add them to the network perimeter blocklist to immediately halt the brute-force traffic.\n\n2. **Enforce Multi-Factor Authentication (MFA) and Lockout Policies**: Temporarily disable password-only authentication for all administrative and privileged accounts, forcing MFA verification for any login attempt. Additionally, configure the identity provider (e.g., Active Directory, LDAP, or SSO) to implement an automatic account lockout policy after 3 consecutive failed attempts, with a 15-minute lockout duration, to prevent credential stuffing from succeeding even if valid credentials are guessed.\n\n3. **Isolate Affected Hosts and Preserve Forensic Evidence**: Identify the specific servers or services experiencing the authentication spikes and isolate them from the production network by moving them to a dedicated forensic VLAN or disabling their network interfaces, while keeping them powered on to preserve memory and disk state. Immediately capture full system logs (auth logs, firewall logs, and application logs) and create forensic disk images to enable detailed analysis of potential successful breaches or lateral movement attempts.",
+    "linked_alerts": [
+      {
+        "id": 609,
+        "title": "[Wazuh rule 5710] Suspicious Authentication Failure Spike",
+        "severity": "critical",
+        "mitre": "T1110",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 504,
+    "title": "Incident: [Wazuh rule 100201] Multiple Windows logon failures followed by suspicious privilege escalation attempt from 185.220.101.5",
+    "severity": "critical",
+    "status": "resolved",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-11-17 10:57:54",
+    "summary": "Incident 504 involves a critical security breach where multiple Windows logon failures from IP address 185.220.101.5 were immediately followed by a suspicious privilege escalation attempt, indicating a successful or attempted compromise of system integrity. The high risk score of 80.0 underscores the severe potential impact, which could include unauthorized administrative access, data exfiltration, or lateral movement within the network. External threat intelligence partially corroborates the malicious nature of the activity, with VirusTotal reporting 10 malicious flags and 4 suspicious indicators for the associated IP, although the inability to retrieve data from AbuseIPDB due to an authentication error limits the scope of the external validation. Immediate containment and forensic investigation are required to mitigate the risk of further exploitation.",
+    "recommendation": "1. **Isolate the Compromised Host and Block the Source IP**: Immediately disconnect the affected Windows server from the network (or place it in a quarantine VLAN) to prevent lateral movement and data exfiltration. Simultaneously, configure the perimeter firewall and internal network access control lists (ACLs) to explicitly deny all inbound and outbound traffic from IP address `185.220.101.5`, ensuring that any ongoing or future connection attempts from this malicious source are dropped at the network layer.\n\n2. **Revoke Active Sessions and Reset Credentials for Affected Accounts**: Identify all user accounts that experienced logon failures or privilege escalation attempts from `185.220.101.5` in the Windows Event Logs (specifically Event ID 4625 for failures and 4672 for special privileges). Immediately force a password reset for these accounts, disable any active sessions associated with them via `net session` or Active Directory Users and Computers, and invalidate all associated Kerberos tickets using `klist purge` on the affected hosts to prevent session hijacking or replay attacks.\n\n3. **Capture Forensic Artifacts and Audit Privilege Escalation Vectors**: Before rebooting the isolated host, capture a full memory dump and disk image for forensic analysis. Specifically, audit the Windows Security and System logs for Event ID 4672 (special privileges assigned to new logon) and Event ID 4688 (process creation) to identify the specific executable or service used for the privilege escalation attempt. Check for unauthorized modifications to the Local Security Policy, particularly changes to the \"SeDebugPrivilege\" or \"SeTcbPrivilege\" rights, and verify the integrity of critical system files using `sfc /scannow` and `DISM /Online /Cleanup-Image /CheckHealth` to detect potential rootkit or backdoor installations.",
+    "linked_alerts": [
+      {
+        "id": 610,
+        "title": "[Wazuh rule 100201] Multiple Windows logon failures followed by suspicious privilege escalation attempt from 185.220.101.5",
+        "severity": "critical",
+        "mitre": "T1110, T1068",
+        "risk": 80.0
+      }
+    ]
+  },
+  {
+    "incident_id": 505,
+    "title": "Incident: [Wazuh rule 60155] Multiple logon failures (Brute Force T1110) targeting account 'Administrator' on DESKTOP-AG44JE8 from 194.26.29.112",
+    "severity": "critical",
+    "status": "investigating",
+    "overall_risk_score": 80.0,
+    "created_at": "2026-11-17 11:02:57",
+    "summary": "This incident involves a critical brute-force attack (T1110) targeting the 'Administrator' account on host DESKTOP-AG44JE8 from the external IP address 194.26.29.112, resulting in multiple logon failures. The potential impact is high, as successful compromise of an administrative account could lead to full system takeover, lateral movement, or data exfiltration. External threat intelligence provides limited confirmation, with VirusTotal showing only three suspicious flags and no malicious indicators, while the AbuseIPDB lookup failed due to an authentication error. Consequently, while the activity is highly suspicious and warrants immediate containment, definitive attribution to a known malicious actor remains unconfirmed pending further investigation.",
+    "recommendation": "1. **Immediately block the source IP address `194.26.29.112` at the perimeter firewall and host-level firewall (e.g., Windows Firewall or iptables) to sever the active brute-force connection, ensuring the rule is applied to all inbound interfaces to prevent further logon attempts against the 'Administrator' account.**\n\n2. **Enforce immediate account lockout policies and disable the local 'Administrator' account on host `DESKTOP-AG44JE8` if it is not strictly required for local administrative tasks, replacing it with a non-standard, uniquely named administrative account that is subject to stricter multi-factor authentication (MFA) and network access control lists (ACLs) to mitigate lateral movement risks.**\n\n3. **Deploy a real-time intrusion detection/prevention system (IDS/IPS) rule or host-based agent alert specifically targeting T1110 (Brute Force) patterns on `DESKTOP-AG44JE8`, configured to automatically trigger a network isolation action (quarantine) upon detecting more than three failed logon attempts from any external IP within a 60-second window, while simultaneously capturing full packet captures (PCAPs) of the blocked traffic for forensic analysis.**",
+    "linked_alerts": [
+      {
+        "id": 611,
+        "title": "[Wazuh rule 60155] Multiple logon failures (Brute Force T1110) targeting account 'Administrator' on DESKTOP-AG44JE8 from 194.26.29.112",
+        "severity": "critical",
+        "mitre": "T1110.001, T1078",
+        "risk": 80.0
+      }
+    ]
+  }
+]

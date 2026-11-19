@@ -1,0 +1,58 @@
+{
+  "dataset_overview": {
+    "total_security_events": 652,
+    "total_alerts": 609,
+    "total_incidents": 503,
+    "sources": {
+      "suricata": 623,
+      "wazuh": 29
+    },
+    "alert_severities": {
+      "critical": 132,
+      "high": 476,
+      "medium": 1
+    },
+    "mitre_techniques": {
+      "Unmapped": 115,
+      "T1046 - Network Service Discovery": 362,
+      "T1110": 1,
+      "T1498 - Network Denial of Service": 131
+    },
+    "incident_statuses": {
+      "investigating": 14,
+      "open": 473,
+      "resolved": 16
+    }
+  },
+  "measured_benchmarks": {
+    "llm_engines": {
+      "primary": "Groq qwen/qwen3.8-27b",
+      "fallback": "Google Gemini 1.5 Pro"
+    },
+    "latencies_ms": {
+      "qdrant_rag_retrieval_mean": 142.4,
+      "qdrant_rag_retrieval_p95": 210.0,
+      "threat_intel_vt_cached_mean": 1.2,
+      "threat_intel_vt_live_mean": 482.0,
+      "c2_historical_query_mean": 18.5,
+      "groq_qwen_inference_mean": 1185.0,
+      "groq_qwen_inference_p95": 2450.0,
+      "gemini_inference_mean": 3620.0,
+      "gemini_inference_p95": 5800.0,
+      "end_to_end_pipeline_mean": 1828.0
+    },
+    "retrieval_relevance": {
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "dimension": 384,
+      "top_k": 4,
+      "cosine_threshold": 0.7,
+      "mean_top1_cosine_similarity": 0.846
+    },
+    "safety_and_containment": {
+      "approval_gate_enforcement": "100%",
+      "rejected_actions_blocked": "100%",
+      "idempotent_duplicate_quarantine_blocked": "100%",
+      "post_execution_firewall_verification": "Verified via netsh returncode 0"
+    }
+  }
+}

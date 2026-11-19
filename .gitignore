@@ -1,0 +1,16 @@
+# Secrets and local configuration
+.env
+backend/.env
+db.env
+*.secrets
+
+# Local runtime state
+suricata_logs/*.sentinelai-offset.json
+suricata_logs/*.sentinelai-offset.json.tmp
+backend/qdrant_cache/
+backend/.qdrant/
+
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/

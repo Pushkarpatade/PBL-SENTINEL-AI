@@ -1,0 +1,22 @@
+{
+  "C1 (Alert Only)": {
+    "latency_s": 4.25,
+    "output": "This alert indicates a high-severity brute-force attack from an external IP address that has successfully compromised credentials, leading to an immediate attempt to escalate privileges to the Administrator account on the target workstation. The combination of repeated logon failures and a subsequent privilege escalation suggests an active intrusion attempt that requires urgent containment to prevent lateral movement or data exfiltration.\n\n1. Immediately isolate the affected host (DESKTOP-AG44JE8) from the network and block the source IP address (185.220.101.5) at the perimeter firewall to stop ongoing malicious activity.\n2. Force a password reset for the compromised Administrator account and review recent system logs for signs of persistence mechanisms, such as new user creation or scheduled tasks, to determine the full scope of the compromise."
+  },
+  "C1+C2 (+ Historical)": {
+    "latency_s": 1.04,
+    "output": "This alert indicates an active brute-force attack from IP 185.220.101.5 that has successfully transitioned from credential guessing to a privilege escalation attempt against the Administrator account on DESKTOP-AG44JE8. The correlation with six prior authentication failures confirms a persistent threat actor attempting to gain unauthorized administrative access through repeated login attempts.\n\n1. Immediately block IP address 185.220.101.5 at the network perimeter and isolate DESKTOP-AG44JE8 from the network to prevent further lateral movement or data exfiltration.\n2. Force a password reset for the Administrator account and review local security logs to determine if the privilege escalation attempt succeeded, while initiating a forensic investigation on the affected host."
+  },
+  "C1+C3 (+ Threat Intel)": {
+    "latency_s": 0.78,
+    "output": "This alert indicates an active brute-force attack from a known malicious IP (185.220.101.5) that successfully escalated privileges to the Administrator account on DESKTOP-AG44JE8, confirming a potential compromise. Immediate isolation of the affected host is required to prevent lateral movement, followed by a forensic review of the authentication logs to identify the specific credential abuse vector."
+  },
+  "C1+C4 (+ RAG Playbook)": {
+    "latency_s": 1.01,
+    "output": "This alert indicates a potential brute-force attack from IP 185.220.101.5 against the Administrator account on DESKTOP-AG44JE8, characterized by multiple logon failures followed by a suspicious privilege escalation attempt. Immediate containment is required to prevent unauthorized access, as the activity aligns with MITRE ATT&CK T1110 credential access techniques.\n\n1. Block the offending IP address (185.220.101.5) at the firewall and trigger Wazuh Active Response to isolate the host if necessary.\n2. Force a password reset for the targeted Administrator account and enforce Multi-Factor Authentication (MFA) on all remote access gateways to mitigate further credential-based attacks."
+  },
+  "C1+C2+C3+C4 (Full Pipeline)": {
+    "latency_s": 0.96,
+    "output": "The alert indicates an active brute-force attack from the malicious IP 185.220.101.5, which has generated multiple authentication failures and is now attempting to escalate privileges to the Administrator account on DESKTOP-AG44JE8. This behavior aligns with MITRE ATT&CK T1110, confirming a high-confidence threat that requires immediate containment to prevent unauthorized access.\n\n1. Immediately block IP 185.220.101.5 at the perimeter firewall and trigger Wazuh Active Response to isolate the affected host.\n2. Force a password reset for the Administrator account and review authentication logs to verify if any prior attempts resulted in successful unauthorized logins."
+  }
+}

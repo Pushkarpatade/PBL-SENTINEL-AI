@@ -1,0 +1,75 @@
+%YAML 1.1
+---
+
+default-log-dir: d:\\pbl final project\\suricata_logs
+
+stats:
+  enabled: no
+
+outputs:
+  - fast:
+      enabled: yes
+      filename: fast.log
+      append: yes
+
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types:
+        - alert:
+            payload: yes
+            payload-printable: yes
+            packet: yes
+        - http:
+            extended: yes
+        - dns
+        - tls
+
+default-rule-path: d:\\pbl final project\\suricata_rules
+
+rule-files:
+  - sentinel.rules
+
+classification-file: C:\\Program Files\\Suricata\\classification.config
+reference-config-file: C:\\Program Files\\Suricata\\reference.config
+
+# Host variables
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
+    EXTERNAL_NET: "!$HOME_NET"
+    HTTP_SERVERS: "$HOME_NET"
+    SMTP_SERVERS: "$HOME_NET"
+    SQL_SERVERS: "$HOME_NET"
+    DNS_SERVERS: "$HOME_NET"
+    TELNET_SERVERS: "$HOME_NET"
+    AIM_SERVERS: "$EXTERNAL_NET"
+    DC_SERVERS: "$HOME_NET"
+    DNP3_SERVER: "$HOME_NET"
+    DNP3_CLIENT: "$HOME_NET"
+    MODBUS_CLIENT: "$HOME_NET"
+    MODBUS_SERVER: "$HOME_NET"
+    ENIP_CLIENT: "$HOME_NET"
+    ENIP_SERVER: "$HOME_NET"
+
+  port-groups:
+    HTTP_PORTS: "80,8080,8000,5173"
+    SHELLCODE_PORTS: "!80"
+    ORACLE_PORTS: 1521
+    SSH_PORTS: 22
+    DNP3_PORTS: 20000
+    MODBUS_PORTS: 502
+    FILE_DATA_PORTS: "[$HTTP_PORTS,110,143]"
+    FTP_PORTS: 21
+    VXLAN_PORTS: 4789
+    TEREDO_PORTS: 3544
+
+# PCAP capture settings
+pcap:
+  - interface: "\\Device\\NPF_{50931B9C-7E19-4B35-8C40-4C47B2D00604}"
+    buffer-size: 16777216
+    checksum-checks: no
+  - interface: "\\Device\\NPF_{38A5556A-C40C-47C0-979D-0CDB1B2B2E9D}"
+    buffer-size: 16777216
+    checksum-checks: no
